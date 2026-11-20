@@ -2,10 +2,10 @@
 # -*- coding: utf-8 -*-
 """
 TAVARDT United States
-Interactive AI Threat Matrix & Hardening Blueprint
-Interactive threat modeling matrix and security posture validator for LLMs and AI agent architectures. NIST AI RMF and OWASP LLM aligned.
+Interactive AI Threat Matrix & Defense Blueprint
+Interactive threat matrix and mitigation blueprint for Large Language Models and AI systems. Grounded in OWASP LLM and MITRE ATLAS.
 
-Standard: NIST AI Risk Management Framework, OWASP LLM, and MITRE ATLAS
+Standard: OWASP Top 10 for LLM Applications & MITRE ATLAS
 Repository: https://github.com/TAVARDT-USA/ai-threat-matrix-us
 Online Web App: https://tavardt-usa.github.io/ai-threat-matrix-us/
 """
@@ -79,7 +79,7 @@ def generate_blueprint_md(evaluation):
     md.append(f"- **Organization**: TAVARDT United States")
     md.append(f"- **Evaluation Date**: {ts} UTC")
     md.append(f"- **Architecture Profile**: {evaluation['architecture'].upper()}")
-    md.append(f"- **Compliance Standard**: NIST AI Risk Management Framework, OWASP LLM, and MITRE ATLAS")
+    md.append(f"- **Compliance Standard**: OWASP Top 10 for LLM Applications & MITRE ATLAS")
     md.append(f"- **Hardening Score**: {evaluation['score']} / 100")
     md.append(f"- **Defensive Posture**: {evaluation['posture']}")
     md.append("")
@@ -99,12 +99,12 @@ def generate_blueprint_md(evaluation):
     return "\n".join(md)
 
 def main():
-    parser = argparse.ArgumentParser(description="AI Threat Matrix Evaluator and Defensive Hardening Blueprint Generator.")
-    parser.add_argument("--arch", choices=["agent", "rag", "chat", "api"], default="agent", help="AI architecture profile (agent, rag, chat, api)")
+    parser = argparse.ArgumentParser(description="AI Threat Matrix Posture Evaluator and Blueprint Generator.")
+    parser.add_argument("--arch", choices=["agent", "rag", "chat", "api"], default="agent", help="Architectural profile of the AI solution (agent, rag, chat, api)")
     parser.add_argument("--profile", help="Path to JSON file containing threat defense states")
     parser.add_argument("--export-blueprint", help="Export hardening blueprint to Markdown file")
-    parser.add_argument("--strict", action="store_true", help="Exit with code 1 if any threat vector is exposed")
-    parser.add_argument("--json", action="store_true", help="Output evaluation in structured JSON format")
+    parser.add_argument("--strict", action="store_true", help="Exit with code 1 if any threat vector is vulnerable")
+    parser.add_argument("--json", action="store_true", help="Output results as structured JSON")
 
     args = parser.parse_args()
 
@@ -128,14 +128,14 @@ def main():
         bp_content = generate_blueprint_md(eval_res)
         with open(args.export_blueprint, "w", encoding="utf-8") as bf:
             bf.write(bp_content)
-        print(f"Hardening blueprint successfully written to: {args.export_blueprint}")
+        print(f"Hardening blueprint written successfully to: {args.export_blueprint}")
 
     if args.json:
         print(json.dumps(eval_res, indent=2, ensure_ascii=False))
     else:
         print("=" * 64)
         print(f"AI THREAT MATRIX: TAVARDT United States")
-        print(f"Standard: NIST AI Risk Management Framework, OWASP LLM, and MITRE ATLAS")
+        print(f"Standard: OWASP Top 10 for LLM Applications & MITRE ATLAS")
         print(f"Architecture: {eval_res['architecture'].upper()}")
         print(f"Hardening Score: {eval_res['score']} / 100")
         print(f"Defensive Posture: {eval_res['posture']}")
