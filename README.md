@@ -1,45 +1,45 @@
-# Interactive AI Threat Matrix & Hardening Blueprint
+# Interactive AI Threat Matrix & Defense Blueprint
 
 [![Live Demo](https://img.shields.io/badge/GitHub%20Pages-Live%20Demo-38bdf8?style=for-the-badge)](https://tavardt-usa.github.io/ai-threat-matrix-us/)
 [![Standard](https://img.shields.io/badge/Standard-OWASP%20LLM%20%26%20MITRE-3b82f6?style=for-the-badge)](https://tavardt-usa.github.io/ai-threat-matrix-us/)
 [![Privacy](https://img.shields.io/badge/Privacy-100%25%20Client--Side-10b981?style=for-the-badge)](https://tavardt-usa.github.io/ai-threat-matrix-us/)
 [![License](https://img.shields.io/badge/License-MIT-slate?style=for-the-badge)](LICENSE)
 
-Interactive threat modeling matrix and security posture validator for LLMs and AI agent architectures. NIST AI RMF and OWASP LLM aligned.
+Interactive threat matrix and mitigation blueprint for Large Language Models and AI systems. Grounded in OWASP LLM and MITRE ATLAS.
 
-Engineered for organizations and engineering teams in **United States**, this repository provides a structured threat assessment matrix and automated hardening blueprint generator for Large Language Models and autonomous AI agent applications.
+Engineered for organizations, security researchers, and AI engineers in **United States**, this repository provides a structured interactive matrix and evaluation engine for AI threat mapping, defensive posture assessment, and technical hardening blueprints across Large Language Models and autonomous AI agent architectures.
 
 ---
 
-## Operational Interfaces
+## Operational Modalities
 
-### 1. In-Browser Web Application (GitHub Pages)
-Interactive visual interface accessible directly from your browser:
-- **Live Demo**: [https://tavardt-usa.github.io/ai-threat-matrix-us/](https://tavardt-usa.github.io/ai-threat-matrix-us/)
-- **Privacy by Design**: All processing executes 100% locally in your client JavaScript engine. No configurations or security metrics are ever transmitted to any external server.
+### 1. In-Browser Client Web Application (GitHub Pages)
+Access the interactive dashboard directly in any modern browser:
+- **Official URL**: [https://tavardt-usa.github.io/ai-threat-matrix-us/](https://tavardt-usa.github.io/ai-threat-matrix-us/)
+- **Privacy by Design**: Executes 100% in your browser's local JavaScript engine. No architecture schemas, parameters, or evaluations are transmitted to external servers.
 
-### 2. Standalone Python CLI Tool
-For automated security gating in CI/CD pipelines, pre-commit hooks, or local workstation auditing:
+### 2. Command Line Interface (CLI Tool)
+For automated CI/CD pipeline gating or headless local audits:
 
 ```bash
-# Basic evaluation with autonomous agent profile
+# Basic evaluation using autonomous agent architecture profile
 python threat_matrix_evaluator.py --arch agent
 
-# Generate Hardening Blueprint in Markdown format
+# Export comprehensive hardening blueprint in Markdown
 python threat_matrix_evaluator.py --arch rag --export-blueprint hardening-blueprint.md
 
-# Strict mode for CI/CD gates (exits with code 1 upon any vulnerable vector)
+# Evaluate using structured defensive profile JSON
 python threat_matrix_evaluator.py --profile profile.json --strict
 
-# Output structured JSON report
+# Structured JSON output for reporting and pipeline integration
 python threat_matrix_evaluator.py --arch agent --json
 ```
 
 ---
 
-## 10 Audited Threat Vectors (OWASP Top 10 for LLMs)
+## 10 Critical Threat Vectors Mapped (OWASP Top 10 for LLMs)
 
-1. **Prompt Injection (Direct & Indirect)**: Subversion of LLM instructions via untrusted user inputs or retrieved third-party context.
+1. **Prompt Injection (Direct & Indirect)**: Subversion of model instructions via user prompts or retrieved external context.
 2. **Sensitive Information Disclosure**: Inadvertent leakage of proprietary data, credentials, or PII in generated outputs.
 3. **Supply Chain Vulnerabilities**: Compromised third-party packages, vulnerable plugins, or unverified model weights.
 4. **Data and Model Poisoning**: Manipulation of fine-tuning datasets or knowledge repositories to introduce backdoors.
@@ -52,7 +52,9 @@ python threat_matrix_evaluator.py --arch agent --json
 
 ---
 
-## GitHub Actions CI/CD Integration
+## CI/CD Pipeline Integration (GitHub Actions)
+
+Example workflow enforcing zero-trust AI security posture:
 
 ```yaml
 name: AI Threat Matrix Gate
@@ -77,13 +79,13 @@ jobs:
 ## Compliance and Technical Standards
 
 - **Jurisdiction**: United States
-- **Compliance Standard**: NIST AI Risk Management Framework, OWASP LLM, and MITRE ATLAS
+- **Compliance Standard**: OWASP Top 10 for LLM Applications & MITRE ATLAS
 - **Maintaining Organization**: [TAVARDT-USA](https://github.com/TAVARDT-USA)
 
 ## TAVARDT Ecosystem & Official Portals
 
 - **Main National Portal**: [https://ag.tavardt.com/us/](https://ag.tavardt.com/us/)
-- **Cybersecurity & Web Tools Hub**: [https://tools.tavardt.com/](https://tools.tavardt.com/)
+- **TAVARDT Tools Hub**: [https://tools.tavardt.com/us/](https://tools.tavardt.com/us/)
 - **Technical Support Channel**: [https://ag.tavardt.com/us/contact/](https://ag.tavardt.com/us/contact/)
 
 ---
