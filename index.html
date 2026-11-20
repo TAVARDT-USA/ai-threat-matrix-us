@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Interactive AI Threat Matrix & Hardening Blueprint | TAVARDT United States</title>
-  <meta name="description" content="Interactive threat modeling matrix and security posture validator for LLMs and AI agent architectures. NIST AI RMF and OWASP LLM aligned.">
+  <title>Interactive AI Threat Matrix & Defense Blueprint | TAVARDT United States</title>
+  <meta name="description" content="Interactive threat matrix and mitigation blueprint for Large Language Models and AI systems. Grounded in OWASP LLM and MITRE ATLAS.">
   <style>
     :root {
       --bg: #060913;
@@ -25,285 +25,340 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       background-color: var(--bg);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.5;
+      padding-bottom: 60px;
     }
     header {
-      background-color: #0b1120;
+      background-color: rgba(14, 23, 38, 0.95);
+      backdrop-filter: blur(8px);
       border-bottom: 1px solid var(--card-border);
-      padding: 1.25rem 2rem;
+      padding: 16px 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
     .brand-title {
-      font-size: 1.25rem;
+      font-size: 1.15rem;
       font-weight: 700;
-      letter-spacing: -0.02em;
       color: #fff;
+      letter-spacing: -0.02em;
     }
     .brand-sub {
-      font-size: 0.85rem;
-      color: var(--text-muted);
+      font-size: 0.78rem;
+      color: var(--accent);
+      font-weight: 500;
+    }
+    .nav-links {
+      display: flex;
+      gap: 16px;
     }
     .nav-links a {
-      color: #cbd5e1;
+      color: var(--text-muted);
       text-decoration: none;
-      font-size: 0.875rem;
-      margin-left: 1.5rem;
+      font-size: 0.85rem;
       transition: color 0.2s;
     }
-    .nav-links a:hover { color: var(--accent); }
+    .nav-links a:hover {
+      color: var(--accent);
+    }
     .container {
-      max-width: 1100px;
-      margin: 2.5rem auto;
-      padding: 0 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 32px 20px;
     }
     .hero {
       text-align: center;
-      margin-bottom: 2.5rem;
+      margin-bottom: 32px;
     }
     .hero h1 {
       font-size: 2.1rem;
       font-weight: 800;
-      margin-bottom: 0.75rem;
-      color: #fff;
-      line-height: 1.25;
+      letter-spacing: -0.03em;
+      margin-bottom: 10px;
+      background: linear-gradient(135deg, #fff 40%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
     .hero p {
-      font-size: 1.05rem;
+      font-size: 1rem;
       color: var(--text-muted);
       max-width: 820px;
-      margin: 0 auto 1.5rem auto;
+      margin: 0 auto 16px;
     }
     .badge-bar {
       display: flex;
-      justify-content: center;
-      gap: 0.75rem;
       flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin-bottom: 24px;
     }
     .badge {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      font-weight: 700;
-      padding: 0.35rem 0.75rem;
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
       border-radius: 9999px;
-      background-color: rgba(56, 189, 248, 0.15);
+      font-size: 0.75rem;
+      font-weight: 600;
+      background-color: rgba(56, 189, 248, 0.1);
       color: var(--accent);
-      border: 1px solid rgba(56, 189, 248, 0.3);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+    }
+    .grid-dashboard {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+    @media (max-width: 900px) {
+      .grid-dashboard {
+        grid-template-columns: 1fr;
+      }
     }
     .card {
       background-color: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: 12px;
-      padding: 1.75rem;
-      margin-bottom: 2rem;
+      padding: 24px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
     }
     .card-title {
-      font-size: 1.25rem;
+      font-size: 1.15rem;
       font-weight: 700;
-      margin-bottom: 0.5rem;
+      margin-bottom: 8px;
       color: #fff;
     }
     .card-desc {
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       color: var(--text-muted);
-      margin-bottom: 1.25rem;
+      margin-bottom: 20px;
     }
-    .arch-select-row {
-      display: flex;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-      flex-wrap: wrap;
+    .arch-selector {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 10px;
+      margin-bottom: 20px;
     }
     .arch-btn {
-      flex: 1;
-      min-width: 200px;
-      background-color: #0b1120;
+      background-color: var(--code-bg);
       border: 1px solid var(--card-border);
+      color: var(--text-muted);
+      padding: 10px;
       border-radius: 8px;
-      padding: 1rem;
       cursor: pointer;
-      text-align: left;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-align: center;
       transition: all 0.2s;
     }
     .arch-btn:hover {
       border-color: var(--accent);
+      color: var(--text);
     }
     .arch-btn.active {
+      background-color: rgba(56, 189, 248, 0.15);
       border-color: var(--accent);
-      background-color: rgba(56, 189, 248, 0.1);
+      color: var(--accent);
     }
-    .arch-name {
-      font-weight: 700;
-      font-size: 0.95rem;
-      color: #fff;
-      margin-bottom: 0.25rem;
+    .arch-btn span {
+      display: block;
+      font-size: 0.7rem;
+      font-weight: 400;
+      opacity: 0.8;
+      margin-top: 4px;
     }
-    .arch-sub {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-      margin-bottom: 2rem;
-    }
-    .stat-card {
-      background-color: #0b1120;
-      border: 1px solid var(--card-border);
-      border-radius: 8px;
-      padding: 1.25rem;
+    .stats-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
+      background: linear-gradient(180deg, var(--card-bg) 0%, rgba(14, 23, 38, 0.7) 100%);
     }
-    .stat-val {
-      font-size: 2rem;
+    .score-circle {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      border: 8px solid var(--card-border);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 16px;
+      position: relative;
+    }
+    .score-val {
+      font-size: 2.2rem;
       font-weight: 800;
-      line-height: 1.2;
-      margin-bottom: 0.35rem;
+      color: #fff;
     }
-    .stat-label {
-      font-size: 0.8rem;
+    .score-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
       text-transform: uppercase;
       letter-spacing: 0.05em;
+    }
+    .posture-status {
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 6px 16px;
+      border-radius: 9999px;
+      margin-bottom: 16px;
+    }
+    .posture-stats-row {
+      display: flex;
+      gap: 16px;
+      width: 100%;
+      justify-content: space-around;
+      border-top: 1px solid var(--card-border);
+      padding-top: 16px;
+    }
+    .mini-stat {
+      display: flex;
+      flex-direction: column;
+    }
+    .mini-stat-val {
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+    .mini-stat-lbl {
+      font-size: 0.7rem;
       color: var(--text-muted);
+      text-transform: uppercase;
     }
     .threat-item {
-      background-color: #0b1120;
-      border: 1px solid var(--card-border);
-      border-radius: 8px;
-      padding: 1.25rem;
-      margin-bottom: 1rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-    .threat-info {
-      flex: 1;
-      min-width: 280px;
-    }
-    .threat-code {
-      display: inline-block;
-      font-family: monospace;
-      font-size: 0.75rem;
-      font-weight: 700;
-      padding: 0.2rem 0.5rem;
-      border-radius: 4px;
-      background: rgba(56, 189, 248, 0.15);
-      color: var(--accent);
-      margin-bottom: 0.35rem;
-    }
-    .threat-title {
-      font-size: 1rem;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 0.25rem;
-    }
-    .threat-desc {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
-    .status-group {
-      display: flex;
-      gap: 0.5rem;
-    }
-    .btn-status {
-      padding: 0.45rem 0.85rem;
-      font-size: 0.78rem;
-      font-weight: 700;
-      border-radius: 6px;
-      border: 1px solid #334155;
-      background: #1e293b;
-      color: #94a3b8;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .btn-status.active-defended {
-      background: rgba(16, 185, 129, 0.2);
-      border-color: var(--pass);
-      color: #6ee7b7;
-    }
-    .btn-status.active-partial {
-      background: rgba(245, 158, 11, 0.2);
-      border-color: var(--warn);
-      color: #fde68a;
-    }
-    .btn-status.active-exposed {
-      background: rgba(239, 68, 68, 0.2);
-      border-color: var(--fail);
-      color: #fca5a5;
-    }
-    .action-row {
-      display: flex;
-      gap: 1rem;
-      margin-top: 1.5rem;
-      flex-wrap: wrap;
-    }
-    .btn-primary {
-      background-color: var(--accent);
-      color: #04101c;
-      border: none;
-      padding: 0.85rem 1.75rem;
-      border-radius: 8px;
-      font-size: 1rem;
-      font-weight: 700;
-      cursor: pointer;
-      transition: background-color 0.2s;
-    }
-    .btn-primary:hover {
-      background-color: var(--accent-hover);
-    }
-    .btn-secondary {
-      background-color: #1e293b;
-      color: #cbd5e1;
-      border: 1px solid #334155;
-      padding: 0.85rem 1.5rem;
-      border-radius: 8px;
-      font-size: 0.95rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .btn-secondary:hover {
-      background-color: #334155;
-      color: #fff;
-    }
-    .blueprint-output {
-      width: 100%;
-      height: 260px;
       background-color: var(--code-bg);
       border: 1px solid var(--card-border);
       border-radius: 8px;
-      color: #6ee7b7;
-      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
-      font-size: 0.88rem;
-      padding: 1rem;
-      resize: vertical;
-      margin-top: 1rem;
+      padding: 14px 16px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      transition: border-color 0.2s;
+    }
+    .threat-item:hover {
+      border-color: #334155;
+    }
+    .threat-info {
+      flex: 1;
+    }
+    .threat-code {
+      font-size: 0.72rem;
+      font-family: monospace;
+      color: var(--accent);
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .threat-title {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: #fff;
+      margin-top: 2px;
+    }
+    .threat-desc {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+    .status-group {
+      display: flex;
+      gap: 6px;
+    }
+    .btn-status {
+      padding: 6px 12px;
+      border-radius: 6px;
+      border: 1px solid var(--card-border);
+      background-color: var(--card-bg);
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .btn-status:hover {
+      color: #fff;
+    }
+    .btn-status.active-defended {
+      background-color: rgba(16, 185, 129, 0.15);
+      border-color: var(--pass);
+      color: var(--pass);
+    }
+    .btn-status.active-partial {
+      background-color: rgba(245, 158, 11, 0.15);
+      border-color: var(--warn);
+      color: var(--warn);
+    }
+    .btn-status.active-exposed {
+      background-color: rgba(239, 68, 68, 0.15);
+      border-color: var(--fail);
+      color: var(--fail);
+    }
+    .btn-action-main {
+      width: 100%;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+      color: #000;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 12px 20px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      margin-top: 16px;
+      transition: opacity 0.2s;
+    }
+    .btn-action-main:hover {
+      opacity: 0.9;
+    }
+    .btn-action-secondary {
+      width: 100%;
+      background-color: transparent;
+      border: 1px solid var(--card-border);
+      color: var(--text);
+      font-weight: 600;
+      font-size: 0.85rem;
+      padding: 10px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: all 0.2s;
+    }
+    .btn-action-secondary:hover {
+      border-color: var(--text-muted);
+      background-color: var(--code-bg);
+    }
+    .blueprint-output {
+      width: 100%;
+      height: 280px;
+      background-color: var(--code-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      color: #e2e8f0;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.8rem;
+      padding: 14px;
       line-height: 1.45;
+      resize: vertical;
+      margin-top: 12px;
     }
     footer {
+      max-width: 1200px;
+      margin: 40px auto 0;
+      padding: 24px 20px 0;
       border-top: 1px solid var(--card-border);
-      padding: 2.5rem 1.5rem;
       text-align: center;
+      font-size: 0.82rem;
       color: var(--text-muted);
-      font-size: 0.85rem;
-      background-color: #0b1120;
-      margin-top: 4rem;
     }
     footer a {
       color: var(--accent);
       text-decoration: none;
     }
-    footer a:hover { text-decoration: underline; }
     .privacy-notice {
-      max-width: 700px;
-      margin: 0.75rem auto;
+      margin-top: 8px;
       font-size: 0.8rem;
       color: #64748b;
     }
@@ -317,9 +372,9 @@
       <div class="brand-sub">Interactive AI Threat Matrix & Hardening Blueprint</div>
     </div>
     <div class="nav-links">
-      <a href="https://ag.tavardt.com/us/" target="_blank" rel="noopener">Portal Principal</a>
-      <a href="https://tools.tavardt.com/" target="_blank" rel="noopener">Ferramentas de Ciberseguranca</a>
-      <a href="https://ag.tavardt.com/us/contact/" target="_blank" rel="noopener">Contato Tecnico</a>
+      <a href="https://ag.tavardt.com/us/" target="_blank" rel="noopener">Official Portal</a>
+      <a href="https://tools.tavardt.com/us/" target="_blank" rel="noopener">TAVARDT Tools Hub</a>
+      <a href="https://ag.tavardt.com/us/contact/" target="_blank" rel="noopener">Technical Support</a>
     </div>
   </header>
 
@@ -335,69 +390,69 @@
       </div>
     </div>
 
-    <div class="card">
-      <div class="card-title">1. Select your AI Architecture Profile</div>
-      <div class="card-desc">The architectural profile recalibrates threat severity multipliers and defensive directives:</div>
-      <div class="arch-select-row" id="arch-selector">
-        <button class="arch-btn active" data-arch="agent">
-          <div class="arch-name">Autonomous Agent with Tools</div>
-          <div class="arch-sub">Function calling, Model Context Protocol (MCP), and external APIs</div>
-        </button>
-        <button class="arch-btn" data-arch="rag">
-          <div class="arch-name">RAG Knowledge System</div>
-          <div class="arch-sub">Retrieval-augmented generation via vector embeddings and corpus store</div>
-        </button>
-        <button class="arch-btn" data-arch="chat">
-          <div class="arch-name">Conversational Assistant</div>
-          <div class="arch-sub">Direct customer or internal chat interfaces</div>
-        </button>
-        <button class="arch-btn" data-arch="api">
-          <div class="arch-name">Dedicated Model API</div>
-          <div class="arch-sub">Internal fine-tuned endpoints or enterprise platform integrations</div>
-        </button>
+    <div class="grid-dashboard">
+      <div>
+        <div class="card">
+          <div class="card-title">1. Select your AI Architecture Profile</div>
+          <div class="card-desc">The architectural profile recalibrates threat severity multipliers and defensive directives:</div>
+          <div class="arch-selector">
+            <button class="arch-btn active" data-arch="agent">
+              Autonomous Agent with Tools
+              <span>Function calling, Model Context Protocol (MCP), and external APIs</span>
+            </button>
+            <button class="arch-btn" data-arch="rag">
+              RAG Knowledge System
+              <span>Retrieval-augmented generation via vector embeddings and corpus store</span>
+            </button>
+            <button class="arch-btn" data-arch="chat">
+              Conversational Assistant
+              <span>Direct customer or internal chat interfaces</span>
+            </button>
+            <button class="arch-btn" data-arch="api">
+              Dedicated Model API
+              <span>Internal fine-tuned endpoints or enterprise platform integrations</span>
+            </button>
+          </div>
+
+          <div class="card-title" style="margin-top: 24px;">2. Threat Matrix Evaluation Across 10 Critical Attack Vectors (OWASP)</div>
+          <div class="card-desc">Assess the defensive implementation status for each adversarial vector:</div>
+
+          <div id="threat-list"></div>
+        </div>
       </div>
 
-      <div class="stats-grid">
-        <div class="stat-card">
-          <div class="stat-val" id="stat-score" style="color: var(--fail);">25</div>
-          <div class="stat-label">Hardening Score</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-val" id="stat-posture" style="color: var(--fail); font-size: 1.35rem;">VULNERABLE</div>
-          <div class="stat-label">Defensive Posture</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-val" id="stat-defended" style="color: var(--pass);">2 / 10</div>
-          <div class="stat-label">Defended Controls</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-val" id="stat-exposed" style="color: var(--fail);">8 / 10</div>
-          <div class="stat-label">Vulnerable Vectors</div>
+      <div>
+        <div class="card stats-card">
+          <div class="score-circle">
+            <span id="stat-score" class="score-val">0</span>
+            <span class="score-label">Hardening Score</span>
+          </div>
+
+          <div id="stat-posture" class="posture-status">Defensive Posture</div>
+
+          <div class="posture-stats-row">
+            <div class="mini-stat">
+              <span id="stat-defended" class="mini-stat-val" style="color: var(--pass);">0</span>
+              <span class="mini-stat-lbl">Defended Controls</span>
+            </div>
+            <div class="mini-stat">
+              <span id="stat-exposed" class="mini-stat-val" style="color: var(--fail);">0</span>
+              <span class="mini-stat-lbl">Vulnerable Vectors</span>
+            </div>
+          </div>
+
+          <button id="btn-generate-blueprint" class="btn-action-main">Generate Hardening Blueprint (Markdown)</button>
+          <button id="btn-export-matrix" class="btn-action-secondary">Export Threat Matrix JSON</button>
         </div>
       </div>
     </div>
 
-    <div class="card">
-      <div class="card-title">2. Threat Matrix Evaluation Across 10 Critical Attack Vectors (OWASP)</div>
-      <div class="card-desc">Assess the defensive implementation status for each adversarial vector:</div>
-      <div id="threat-list"></div>
-
-      <div class="action-row">
-        <button class="btn-primary" id="btn-generate-blueprint">Generate Hardening Blueprint (Markdown)</button>
-        <button class="btn-secondary" id="btn-export-matrix">Export Threat Matrix JSON</button>
-      </div>
-    </div>
-
-    <div class="card" id="blueprint-card" style="display:none;">
-      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem;">
-        <div>
-          <div class="card-title" style="margin-bottom:0.25rem;">Architectural Hardening Blueprint</div>
-          <div class="card-desc" style="margin-bottom:0;">Production-ready technical specification for security review, compliance audit, and architectural gating:</div>
-        </div>
-        <div>
-          <button class="btn-secondary" id="btn-copy-bp" style="margin-left:0; padding:0.5rem 1rem; font-size:0.85rem;">Copy Blueprint</button>
-          <button class="btn-secondary" id="btn-dl-bp" style="margin-left:0.5rem; padding:0.5rem 1rem; font-size:0.85rem;">Download ai-hardening-blueprint.md</button>
-        </div>
+    <div id="blueprint-card" class="card" style="display: none; margin-top: 24px;">
+      <div class="card-title">Architectural Hardening Blueprint</div>
+      <div class="card-desc">Production-ready technical specification for security review, compliance audit, and architectural gating:</div>
+      <div style="display: flex; gap: 10px; margin-bottom: 10px;">
+        <button id="btn-copy-bp" class="btn-action-secondary" style="width: auto; margin: 0;">Copy Blueprint</button>
+        <button id="btn-dl-bp" class="btn-action-secondary" style="width: auto; margin: 0;">Download ai-hardening-blueprint.md</button>
       </div>
       <textarea id="blueprint-area" class="blueprint-output" readonly></textarea>
     </div>
@@ -428,11 +483,8 @@
       ];
 
       let selectedArch = "agent";
-      let threatStates = {};
-
-      threats.forEach(t => {
-        threatStates[t.id] = t.defaultState;
-      });
+      const threatStates = {};
+      threats.forEach(t => threatStates[t.id] = t.defaultState);
 
       const threatList = document.getElementById("threat-list");
       const statScore = document.getElementById("stat-score");
@@ -526,45 +578,45 @@
       // Generate Blueprint
       document.getElementById("btn-generate-blueprint").addEventListener("click", function() {
         const ts = new Date().toISOString().replace("T", " ").substring(0, 19);
-        let bp = `# AI Security Hardening Blueprint\n\n`;
-        bp += `- **Organization**: TAVARDT United States\n`;
-        bp += `- **Date**: ${ts} UTC\n`;
-        bp += `- **Architecture**: ${selectedArch.toUpperCase()}\n`;
-        bp += `- **Standard**: NIST AI Risk Management Framework, OWASP LLM, and MITRE ATLAS\n`;
-        bp += `- **Score**: ${statScore.textContent}\n`;
-        bp += `- **Posture**: ${statPosture.textContent}\n\n`;
+        let bp = `# AI Security Hardening Blueprint\\n\\n`;
+        bp += `- **Organization**: TAVARDT United States\\n`;
+        bp += `- **Date**: ${ts} UTC\\n`;
+        bp += `- **Architecture**: ${selectedArch.toUpperCase()}\\n`;
+        bp += `- **Standard**: OWASP Top 10 for LLM Applications & MITRE ATLAS\\n`;
+        bp += `- **Score**: ${statScore.textContent}\\n`;
+        bp += `- **Posture**: ${statPosture.textContent}\\n\\n`;
 
-        bp += `## Executive Mitigation Roadmap\n\n`;
+        bp += `## Executive Mitigation Roadmap\\n\\n`;
 
         threats.forEach(t => {
           const st = threatStates[t.id];
-          bp += `### [${t.code}] ${t.title} - Status: ${st.toUpperCase()}\n`;
+          bp += `### [${t.code}] ${t.title} - Status: ${st.toUpperCase()}\\n`;
           if (st === "exposed") {
-            bp += `- **Deficiency**: Unmitigated exposure. Immediate control implementation required.\n`;
-            bp += `- **Mandatory Action**: Implement strict heuristic input/output guards, context sandboxing, and execution whitelists.\n\n`;
+            bp += `- **Deficiency**: Unmitigated exposure. Immediate control implementation required.\\n`;
+            bp += `- **Mandatory Action**: Implement strict heuristic input/output guards, context sandboxing, and execution whitelists.\\n\\n`;
           } else if (st === "partial") {
-            bp += `- **Deficiency**: Partial mitigation. Residual risk present.\n`;
-            bp += `- **Mandatory Action**: Enforce secondary verification and automated regression test coverage.\n\n`;
+            bp += `- **Deficiency**: Partial mitigation. Residual risk present.\\n`;
+            bp += `- **Mandatory Action**: Enforce secondary verification and automated regression test coverage.\\n\\n`;
           } else {
-            bp += `- **Status**: Documented active defense in place. Maintain ongoing audit logs.\n\n`;
+            bp += `- **Status**: Documented active defense in place. Maintain ongoing audit logs.\\n\\n`;
           }
         });
 
-        bp += `## Architecture-Specific Defensive Directive\n\n`;
+        bp += `## Architecture-Specific Defensive Directive\\n\\n`;
         if (selectedArch === "agent") {
-          bp += `For autonomous agents executing external tools (MCP):\n`;
-          bp += `1. Restrict filesystem mount scopes to dedicated sandboxes.\n`;
-          bp += `2. Forbid direct shell invocations without containerization.\n`;
-          bp += `3. Require human-in-the-loop confirmation on destructive actions.\n`;
+          bp += `For autonomous agents executing external tools (MCP):\\n`;
+          bp += `1. Restrict filesystem mount scopes to dedicated sandboxes.\\n`;
+          bp += `2. Forbid direct shell invocations without containerization.\\n`;
+          bp += `3. Require human-in-the-loop confirmation on destructive actions.\\n`;
         } else if (selectedArch === "rag") {
-          bp += `For Retrieval-Augmented Generation systems:\n`;
-          bp += `1. Enforce strict isolation between prompt commands and retrieved context passages.\n`;
-          bp += `2. Sanitize and validate embedding sources against poisoning.\n`;
-          bp += `3. Mask PII and sensitive tokens before indexation.\n`;
+          bp += `For Retrieval-Augmented Generation systems:\\n`;
+          bp += `1. Enforce strict isolation between prompt commands and retrieved context passages.\\n`;
+          bp += `2. Sanitize and validate embedding sources against poisoning.\\n`;
+          bp += `3. Mask PII and sensitive tokens before indexation.\\n`;
         } else {
-          bp += `For general conversational and API deployments:\n`;
-          bp += `1. Implement bi-directional guardrails on prompt ingress and LLM egress.\n`;
-          bp += `2. Cap token consumption and rate-limit IP endpoints.\n`;
+          bp += `For general conversational and API deployments:\\n`;
+          bp += `1. Implement bi-directional guardrails on prompt ingress and LLM egress.\\n`;
+          bp += `2. Cap token consumption and rate-limit IP endpoints.\\n`;
         }
 
         blueprintArea.value = bp;
@@ -608,7 +660,6 @@
         URL.revokeObjectURL(url);
       });
 
-      // Initial render
       renderThreats();
       recalculate();
 
