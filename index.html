@@ -1786,45 +1786,45 @@ footer a:hover,
       // Generate Blueprint
       document.getElementById("btn-generate-blueprint").addEventListener("click", function() {
         const ts = new Date().toISOString().replace("T", " ").substring(0, 19);
-        let bp = `# AI Security Hardening Blueprint\\n\\n`;
-        bp += `- **Organization**: TAVARDT United States\\n`;
-        bp += `- **Date**: ${ts} UTC\\n`;
-        bp += `- **Architecture**: ${selectedArch.toUpperCase()}\\n`;
-        bp += `- **Standard**: OWASP Top 10 for LLM Applications & MITRE ATLAS\\n`;
-        bp += `- **Score**: ${statScore.textContent}\\n`;
-        bp += `- **Posture**: ${statPosture.textContent}\\n\\n`;
+        let bp = `# AI Security Hardening Blueprint\n\n`;
+        bp += `- **Organization**: TAVARDT United States\n`;
+        bp += `- **Date**: ${ts} UTC\n`;
+        bp += `- **Architecture**: ${selectedArch.toUpperCase()}\n`;
+        bp += `- **Standard**: OWASP Top 10 for LLM Applications & MITRE ATLAS\n`;
+        bp += `- **Score**: ${statScore.textContent}\n`;
+        bp += `- **Posture**: ${statPosture.textContent}\n\n`;
 
-        bp += `## Executive Mitigation Roadmap\\n\\n`;
+        bp += `## Executive Mitigation Roadmap\n\n`;
 
         threats.forEach(t => {
           const st = threatStates[t.id];
-          bp += `### [${t.code}] ${t.title} - Status: ${st.toUpperCase()}\\n`;
+          bp += `### [${t.code}] ${t.title} - Status: ${st.toUpperCase()}\n`;
           if (st === "exposed") {
-            bp += `- **Deficiency**: Unmitigated exposure. Immediate control implementation required.\\n`;
-            bp += `- **Mandatory Action**: Implement strict heuristic input/output guards, context sandboxing, and execution whitelists.\\n\\n`;
+            bp += `- **Deficiency**: Unmitigated exposure. Immediate control implementation required.\n`;
+            bp += `- **Mandatory Action**: Implement strict heuristic input/output guards, context sandboxing, and execution whitelists.\n\n`;
           } else if (st === "partial") {
-            bp += `- **Deficiency**: Partial mitigation. Residual risk present.\\n`;
-            bp += `- **Mandatory Action**: Enforce secondary verification and automated regression test coverage.\\n\\n`;
+            bp += `- **Deficiency**: Partial mitigation. Residual risk present.\n`;
+            bp += `- **Mandatory Action**: Enforce secondary verification and automated regression test coverage.\n\n`;
           } else {
-            bp += `- **Status**: Documented active defense in place. Maintain ongoing audit logs.\\n\\n`;
+            bp += `- **Status**: Documented active defense in place. Maintain ongoing audit logs.\n\n`;
           }
         });
 
-        bp += `## Architecture-Specific Defensive Directive\\n\\n`;
+        bp += `## Architecture-Specific Defensive Directive\n\n`;
         if (selectedArch === "agent") {
-          bp += `For autonomous agents executing external tools (MCP):\\n`;
-          bp += `1. Restrict filesystem mount scopes to dedicated sandboxes.\\n`;
-          bp += `2. Forbid direct shell invocations without containerization.\\n`;
-          bp += `3. Require human-in-the-loop confirmation on destructive actions.\\n`;
+          bp += `For autonomous agents executing external tools (MCP):\n`;
+          bp += `1. Restrict filesystem mount scopes to dedicated sandboxes.\n`;
+          bp += `2. Forbid direct shell invocations without containerization.\n`;
+          bp += `3. Require human-in-the-loop confirmation on destructive actions.\n`;
         } else if (selectedArch === "rag") {
-          bp += `For Retrieval-Augmented Generation systems:\\n`;
-          bp += `1. Enforce strict isolation between prompt commands and retrieved context passages.\\n`;
-          bp += `2. Sanitize and validate embedding sources against poisoning.\\n`;
-          bp += `3. Mask PII and sensitive tokens before indexation.\\n`;
+          bp += `For Retrieval-Augmented Generation systems:\n`;
+          bp += `1. Enforce strict isolation between prompt commands and retrieved context passages.\n`;
+          bp += `2. Sanitize and validate embedding sources against poisoning.\n`;
+          bp += `3. Mask PII and sensitive tokens before indexation.\n`;
         } else {
-          bp += `For general conversational and API deployments:\\n`;
-          bp += `1. Implement bi-directional guardrails on prompt ingress and LLM egress.\\n`;
-          bp += `2. Cap token consumption and rate-limit IP endpoints.\\n`;
+          bp += `For general conversational and API deployments:\n`;
+          bp += `1. Implement bi-directional guardrails on prompt ingress and LLM egress.\n`;
+          bp += `2. Cap token consumption and rate-limit IP endpoints.\n`;
         }
 
         blueprintArea.value = bp;
