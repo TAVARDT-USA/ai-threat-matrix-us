@@ -1048,104 +1048,124 @@ footer a:hover,
 }
 
 /* ==========================================================================
-   LAYOUT 6: SCORECARD SIMÉTRICO 2X5 BALANCEADO
+   LAYOUT 6 EXACT: SCORECARD SIMÉTRICO 2X5 BALANCEADO
    ========================================================================== */
-.stats-score-banner {
+.arch-bar {
+  display: flex !important;
+  gap: 10px !important;
+  flex-wrap: wrap !important;
+  margin-bottom: 24px !important;
   background: var(--card-bg) !important;
   border: 1px solid var(--border) !important;
-  border-radius: 16px !important;
-  padding: 28px 32px !important;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) !important;
+  padding: 12px 16px !important;
+  border-radius: 12px !important;
+  align-items: center !important;
   width: 100% !important;
   box-sizing: border-box !important;
-  margin-bottom: 32px !important;
 }
-.stats-banner-grid {
+.arch-bar-label {
+  font-size: 0.85rem !important;
+  font-weight: 700 !important;
+  color: #839bc8 !important;
+  margin-right: 8px !important;
+}
+.arch-chip {
+  background: var(--card-surface) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--text-muted) !important;
+  padding: 8px 14px !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
+  font-size: 0.82rem !important;
+  font-weight: 600 !important;
+  transition: all 0.2s ease !important;
+}
+.arch-chip:hover {
+  border-color: #839bc8 !important;
+  color: #ffffff !important;
+}
+.arch-chip.active {
+  background: rgba(30, 0, 255, 0.25) !important;
+  border-color: #1e00ff !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 15px rgba(30, 0, 255, 0.3) !important;
+}
+
+/* GLOBAL SCORE BAR */
+.global-score-bar {
+  background: var(--card-bg) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 14px !important;
+  padding: 18px 24px !important;
+  margin-bottom: 20px !important;
   display: flex !important;
   justify-content: space-between !important;
   align-items: center !important;
-  gap: 32px !important;
   flex-wrap: wrap !important;
+  gap: 16px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
 }
-.stats-score-col {
+.score-left {
   display: flex !important;
   align-items: center !important;
-  gap: 28px !important;
-  flex-wrap: wrap !important;
+  gap: 20px !important;
 }
-.score-circle {
-  width: 130px !important;
-  height: 130px !important;
-  border-radius: 50% !important;
-  border: 4px solid var(--border) !important;
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  justify-content: center !important;
-  background: #050510 !important;
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.6) !important;
-  flex-shrink: 0 !important;
-}
-.score-val {
+.score-big {
   font-size: 2.2rem !important;
   font-weight: 800 !important;
   font-family: 'Fira Code', Consolas, monospace !important;
   color: var(--fail) !important;
   line-height: 1 !important;
 }
-.score-label {
-  font-size: 0.75rem !important;
+.score-label-wrap h4 {
+  font-size: 0.95rem !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  margin: 0 0 4px 0 !important;
+}
+.score-label-wrap p {
+  font-size: 0.8rem !important;
   color: var(--text-muted) !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.05em !important;
-  margin-top: 4px !important;
+  margin: 0 !important;
 }
-.score-meta-col {
+.score-pills {
   display: flex !important;
-  flex-direction: column !important;
   gap: 12px !important;
+  flex-wrap: wrap !important;
 }
-.posture-status {
-  font-size: 1.25rem !important;
-  font-weight: 800 !important;
-  letter-spacing: -0.02em !important;
-}
-.posture-stats-row {
-  display: flex !important;
-  gap: 16px !important;
-}
-.mini-stat {
+.score-pill {
   background: var(--card-surface) !important;
   border: 1px solid var(--border) !important;
-  border-radius: 8px !important;
-  padding: 8px 16px !important;
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
+  padding: 6px 14px !important;
+  border-radius: 9999px !important;
+  font-size: 0.8rem !important;
+  font-weight: 600 !important;
 }
-.mini-stat-val {
-  font-size: 1.1rem !important;
-  font-weight: 700 !important;
-  font-family: 'Fira Code', monospace !important;
+.score-pill.def {
+  color: var(--pass) !important;
+  border-color: rgba(16, 185, 129, 0.3) !important;
+  background: rgba(16, 185, 129, 0.08) !important;
 }
-.mini-stat-lbl {
-  font-size: 0.72rem !important;
-  color: var(--text-muted) !important;
-  text-transform: uppercase !important;
+.score-pill.part {
+  color: var(--warn) !important;
+  border-color: rgba(245, 158, 11, 0.3) !important;
+  background: rgba(245, 158, 11, 0.08) !important;
 }
-.stats-actions-col {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 12px !important;
-  min-width: 280px !important;
+.score-pill.exp {
+  color: var(--fail) !important;
+  border-color: rgba(239, 68, 68, 0.3) !important;
+  background: rgba(239, 68, 68, 0.08) !important;
 }
+
+/* ACTIONS BAR */
 .btn-action-main {
   background: #1e00ff !important;
   color: #ffffff !important;
   border: none !important;
   border-radius: 9999px !important;
-  padding: 14px 24px !important;
-  font-size: 0.92rem !important;
+  padding: 12px 24px !important;
+  font-size: 0.9rem !important;
   font-weight: 700 !important;
   cursor: pointer !important;
   transition: all 0.2s ease !important;
@@ -1158,10 +1178,10 @@ footer a:hover,
 }
 .btn-action-secondary {
   background: var(--card-surface) !important;
-  color: #ffffff !important;
+  color: #cbd5e1 !important;
   border: 1px solid var(--border) !important;
   border-radius: 9999px !important;
-  padding: 12px 20px !important;
+  padding: 11px 20px !important;
   font-size: 0.88rem !important;
   font-weight: 600 !important;
   cursor: pointer !important;
@@ -1169,11 +1189,12 @@ footer a:hover,
   text-align: center !important;
 }
 .btn-action-secondary:hover {
-  border-color: rgba(255, 255, 255, 0.25) !important;
+  border-color: #839bc8 !important;
+  color: #ffffff !important;
 }
 
-/* GRID 2X5 BALANCEADO */
-#threat-list {
+/* GRADE 2X5 BALANCEADA */
+.grid-2x5, #threat-list {
   display: grid !important;
   grid-template-columns: repeat(2, 1fr) !important;
   gap: 20px !important;
@@ -1181,96 +1202,60 @@ footer a:hover,
   box-sizing: border-box !important;
 }
 @media (max-width: 820px) {
-  #threat-list {
+  .grid-2x5, #threat-list {
     grid-template-columns: 1fr !important;
   }
-  .stats-banner-grid {
-    flex-direction: column !important;
-    align-items: stretch !important;
-  }
-  .stats-score-col {
-    justify-content: center !important;
-  }
 }
-
-/* CARD SIMÉTRICO DA AMEAÇA */
-.threat-item {
-  background: var(--card-surface) !important;
+.card-2x5 {
+  background: var(--card-bg) !important;
   border: 1px solid var(--border) !important;
   border-radius: 14px !important;
   padding: 22px !important;
-  margin-bottom: 0 !important;
   display: flex !important;
   flex-direction: column !important;
   justify-content: space-between !important;
-  gap: 16px !important;
   transition: all 0.2s ease !important;
   box-sizing: border-box !important;
 }
-.threat-item:hover {
+.card-2x5:hover {
   border-color: rgba(30, 0, 255, 0.4) !important;
   transform: translateY(-2px) !important;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4) !important;
 }
-.threat-info {
-  flex: 1 !important;
-}
-.threat-code {
-  font-size: 0.75rem !important;
-  font-family: 'Fira Code', Consolas, monospace !important;
-  color: #839bc8 !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.05em !important;
-}
-.threat-title {
-  font-size: 1.05rem !important;
-  font-weight: 700 !important;
-  color: #ffffff !important;
-  margin: 6px 0 8px 0 !important;
-  line-height: 1.35 !important;
-}
-.threat-desc {
-  font-size: 0.88rem !important;
-  color: var(--text-muted) !important;
-  line-height: 1.55 !important;
-}
-.status-group {
+
+/* BOTÕES DE STATUS DENTRO DO CARD */
+.status-btn-group {
   display: flex !important;
-  gap: 8px !important;
-  width: 100% !important;
-  border-top: 1px solid var(--border) !important;
-  padding-top: 14px !important;
+  gap: 6px !important;
 }
-.btn-status {
-  flex: 1 !important;
-  padding: 8px 10px !important;
-  border-radius: 8px !important;
+.btn-stat {
+  font-size: 0.75rem !important;
+  padding: 6px 12px !important;
+  border-radius: 6px !important;
   border: 1px solid var(--border) !important;
-  background: var(--card-bg) !important;
+  background: var(--card-surface) !important;
   color: var(--text-muted) !important;
-  font-size: 0.78rem !important;
-  font-weight: 600 !important;
   cursor: pointer !important;
   transition: all 0.2s ease !important;
-  text-align: center !important;
+  font-weight: 600 !important;
 }
-.btn-status:hover {
+.btn-stat:hover {
   color: #ffffff !important;
   border-color: rgba(255, 255, 255, 0.3) !important;
 }
-.btn-status.active-defended {
+.btn-stat.act-def {
   background: rgba(16, 185, 129, 0.15) !important;
   color: #10b981 !important;
   border-color: #10b981 !important;
   font-weight: 700 !important;
 }
-.btn-status.active-partial {
+.btn-stat.act-part {
   background: rgba(245, 158, 11, 0.15) !important;
   color: #f59e0b !important;
   border-color: #f59e0b !important;
   font-weight: 700 !important;
 }
-.btn-status.active-exposed {
+.btn-stat.act-exp {
   background: rgba(239, 68, 68, 0.15) !important;
   color: #ef4444 !important;
   border-color: #ef4444 !important;
@@ -1300,82 +1285,59 @@ footer a:hover,
       <p>Systematic attack surface evaluation for Large Language Models (LLMs) and autonomous AI agents. Grounded in OWASP Top 10 for LLMs and MITRE ATLAS with automated defense blueprint generation.</p>
     </div>
 
-    <!-- LAYOUT 6: 1. ARQUITETURA (FULL WIDTH) -->
-    <div class="card" style="margin-bottom: 24px;">
-      
+    <!-- APPLICATION PROFILE SELECTOR (CHIPS) -->
+    <div class="arch-bar">
+      <span class="arch-bar-label">Application Profile:</span>
+      <button class="arch-chip active" data-arch="agent">🤖 Agents & MCP</button>
+      <button class="arch-chip" data-arch="rag">📚 RAG Pipeline</button>
+      <button class="arch-chip" data-arch="chat">💬 Chatbot / Assistant</button>
+      <button class="arch-chip" data-arch="api">⚡ API / Direct LLM</button>
     </div>
 
-    <!-- LAYOUT 6: SCORECARD & STATUS BANNER (FULL WIDTH) -->
-    <div class="card stats-score-banner">
-      <div class="stats-banner-grid">
-        <div class="stats-score-col">
-          <div class="score-circle">
-            <span id="stat-score" class="score-val">0</span>
-            <span class="score-label">Hardening Score</span>
-          </div>
-          <div class="score-meta-col">
-            <div id="stat-posture" class="posture-status">Defensive Posture</div>
-            <div class="posture-stats-row">
-            <div class="mini-stat">
-              <span id="stat-defended" class="mini-stat-val" style="color: var(--pass);">0</span>
-              <span class="mini-stat-lbl">Defended Controls</span>
-            </div>
-            <div class="mini-stat">
-              <span id="stat-exposed" class="mini-stat-val" style="color: var(--fail);">0</span>
-              <span class="mini-stat-lbl">Vulnerable Vectors</span>
-            </div>
-          </div>
-          </div>
+    <!-- GLOBAL SCORE BAR (HORIZONTAL WITH PILLS) -->
+    <div class="global-score-bar">
+      <div class="score-left">
+        <div class="score-big" id="stat-score">0 / 100</div>
+        <div class="score-label-wrap">
+          <h4 id="stat-posture">Critical Posture (VULNERABLE)</h4>
+          <p>Dynamic index calculated with OWASP LLM Top 10 weights</p>
         </div>
-        <div class="stats-actions-col">
-          <button id="btn-generate-blueprint" class="btn-action-main">Generate Hardening Blueprint (Markdown)</button>
-          <button id="btn-export-matrix" class="btn-action-secondary">Export Threat Matrix JSON</button>
-        </div>
+      </div>
+      <div class="score-pills">
+        <div class="score-pill def" id="pill-def">Defended: 0 / 10</div>
+        <div class="score-pill part" id="pill-part">Partial: 0 / 10</div>
+        <div class="score-pill exp" id="pill-exp">Vulnerable: 0 / 10</div>
       </div>
     </div>
 
-    <!-- LAYOUT 6: 2. GRADE SIMÉTRICA 2X5 DOS 10 VETORES DE RISCO -->
-    <div class="card" style="margin-bottom: 32px;">
-      <div class="card-title">1. Select your AI Architecture Profile</div>
-          <div class="card-desc">The architectural profile recalibrates threat severity multipliers and defensive directives:</div>
-          <div class="arch-selector">
-            <button class="arch-btn active" data-arch="agent">
-              Autonomous Agent with Tools
-              <span>Function calling, Model Context Protocol (MCP), and external APIs</span>
-            </button>
-            <button class="arch-btn" data-arch="rag">
-              RAG Knowledge System
-              <span>Retrieval-augmented generation via vector embeddings and corpus store</span>
-            </button>
-            <button class="arch-btn" data-arch="chat">
-              Conversational Assistant
-              <span>Direct customer or internal chat interfaces</span>
-            </button>
-            <button class="arch-btn" data-arch="api">
-              Dedicated Model API
-              <span>Internal fine-tuned endpoints or enterprise platform integrations</span>
-            </button>
-          </div>
-
-          <div class="card-title" style="margin-top: 24px;">2. Threat Matrix Evaluation Across 10 Critical Attack Vectors (OWASP)</div>
-          <div class="card-desc">Assess the defensive implementation status for each adversarial vector:</div>
-      <div id="threat-list"></div>
+    <!-- ACTIONS ROW (GENERATE BLUEPRINT & EXPORT JSON) -->
+    <div style="display: flex; gap: 12px; justify-content: flex-end; margin-bottom: 24px; flex-wrap: wrap;">
+      <button id="btn-generate-blueprint" class="btn-action-main">Generate Hardening Blueprint (Markdown)</button>
+      <button id="btn-export-matrix" class="btn-action-secondary">Export Threat Matrix JSON</button>
     </div>
 
-    <div id="blueprint-card" class="card" style="display: none; margin-top: 24px;">
-      <div class="card-title">Architectural Hardening Blueprint</div>
-      <div class="card-desc">Production-ready technical specification for security review, compliance audit, and architectural gating:</div>
-      <div style="display: flex; gap: 10px; margin-bottom: 10px;">
-        <button id="btn-copy-bp" class="btn-action-secondary" style="width: auto; margin: 0;">Copy Blueprint</button>
-        <button id="btn-dl-bp" class="btn-action-secondary" style="width: auto; margin: 0;">Download ai-hardening-blueprint.md</button>
+    <!-- BALANCED 2X5 THREAT SCORECARD HEADING & GRID -->
+    <h2 style="text-align: center; margin-bottom: 24px; font-size: 1.5rem; font-weight: 700; color: #ffffff;">
+      Symmetrical Threat Scorecard (Balanced 2×5 Grid)
+    </h2>
+
+    <div id="threat-list" class="grid-2x5" style="margin-bottom: 32px;"></div>
+
+    <!-- Hardening Blueprint Output Card (Initially Hidden) -->
+    <div id="blueprint-card" class="card" style="display: none; margin-bottom: 32px; border-color: #1e00ff;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
+        <div class="card-title" style="margin: 0; font-size: 1.15rem; font-weight: 700; color: #ffffff;">AI Security Hardening Blueprint</div>
+        <div style="display: flex; gap: 10px;">
+          <button id="btn-copy-bp" class="btn-action-secondary" style="width: auto; margin: 0; padding: 8px 16px; font-size: 0.82rem;">Copy Blueprint</button>
+          <button id="btn-dl-bp" class="btn-action-secondary" style="width: auto; margin: 0; padding: 8px 16px; font-size: 0.82rem;">Download ai-hardening-blueprint.md</button>
+        </div>
       </div>
-      <textarea id="blueprint-area" class="blueprint-output" readonly></textarea>
+      <textarea id="blueprint-area" class="blueprint-output" readonly style="width: 100%; height: 260px; background: #050510; border: 1px solid var(--border); border-radius: 8px; color: #839bc8; font-family: 'Fira Code', monospace; font-size: 0.85rem; padding: 14px; box-sizing: border-box; resize: vertical;"></textarea>
     </div>
   </div>
 
   <div class="container">
-
-  <!-- AEO CITABLE DEFINITION SECTION (100% WIDTH - 1200px) -->
+<!-- AEO CITABLE DEFINITION SECTION (100% WIDTH - 1200px) -->
   <section class="aeo-card">
     <h2>What is the AI Threat Matrix?</h2>
     <p>The TAVARDT AI Threat Matrix is an interactive technical platform that maps and correlates adversarial attack vectors according to the OWASP Top 10 for Large Language Models, the NIST AI Risk Management Framework, and the MITRE ATLAS matrix. The platform enables organizations to diagnose their AI security posture and export tailored hardening blueprints.</p>
@@ -1497,6 +1459,7 @@ footer a:hover,
       function recalculate() {
         let totalScore = 0;
         let defCount = 0;
+        let partCount = 0;
         let expCount = 0;
 
         threats.forEach(t => {
@@ -1506,56 +1469,80 @@ footer a:hover,
             defCount++;
           } else if (st === "partial") {
             totalScore += (t.weight * 0.5);
+            partCount++;
           } else {
             expCount++;
           }
         });
 
         const scoreRounded = Math.round(totalScore);
-        statScore.textContent = scoreRounded + " / 100";
-        statDefended.textContent = defCount + " / 10";
-        statExposed.textContent = expCount + " / 10";
+        if (statScore) statScore.textContent = scoreRounded + " / 100";
 
         if (scoreRounded >= 85) {
-          statScore.style.color = "var(--pass)";
-          statPosture.style.color = "var(--pass)";
-          statPosture.textContent = i18n.p_hardened;
+          if (statScore) statScore.style.color = "var(--pass)";
+          if (statPosture) {
+            statPosture.style.color = "var(--pass)";
+            statPosture.textContent = "Hardened Posture (HARDENED)";
+          }
         } else if (scoreRounded >= 60) {
-          statScore.style.color = "var(--warn)";
-          statPosture.style.color = "var(--warn)";
-          statPosture.textContent = i18n.p_developing;
+          if (statScore) statScore.style.color = "var(--warn)";
+          if (statPosture) {
+            statPosture.style.color = "var(--warn)";
+            statPosture.textContent = "Developing Posture (DEVELOPING)";
+          }
         } else {
-          statScore.style.color = "var(--fail)";
-          statPosture.style.color = "var(--fail)";
-          statPosture.textContent = i18n.p_vulnerable;
+          if (statScore) statScore.style.color = "var(--fail)";
+          if (statPosture) {
+            statPosture.style.color = "var(--fail)";
+            statPosture.textContent = "Critical Posture (VULNERABLE)";
+          }
         }
+
+        const pDef = document.getElementById("pill-def");
+        const pPart = document.getElementById("pill-part");
+        const pExp = document.getElementById("pill-exp");
+        if (pDef) pDef.textContent = "Defended: " + defCount + " / 10";
+        if (pPart) pPart.textContent = "Partial: " + partCount + " / 10";
+        if (pExp) pExp.textContent = "Vulnerable: " + expCount + " / 10";
       }
 
       function renderThreats() {
+        const threatList = document.getElementById("threat-list");
+        if (!threatList) return;
         threatList.innerHTML = "";
         threats.forEach(t => {
-          const item = document.createElement("div");
-          item.className = "threat-item";
-
           const curState = threatStates[t.id];
+          const statusColor = curState === 'defended' ? 'var(--pass)' : (curState === 'partial' ? 'var(--warn)' : 'var(--fail)');
+          const statusText = curState === 'defended' ? 'DEFENDED' : (curState === 'partial' ? 'PARTIAL' : 'VULNERABLE');
+
+          const item = document.createElement("div");
+          item.className = "card-2x5";
 
           item.innerHTML = `
-            <div class="threat-info">
-              <span class="threat-code">${t.code} (${t.weight} pts)</span>
-              <div class="threat-title">${t.title}</div>
-              <div class="threat-desc">${t.desc}</div>
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <span style="font-size: 0.75rem; font-family: 'Fira Code', Consolas, monospace; color: #839bc8; font-weight: 700;">${t.code}</span>
+                <span style="font-size: 0.72rem; color: var(--text-muted); background: var(--card-surface); padding: 2px 8px; border-radius: 4px; border: 1px solid var(--border);">Weight: ${t.weight} pts</span>
+              </div>
+              <h4 style="font-size: 1.05rem; font-weight: 700; color: #ffffff; margin-bottom: 8px; line-height: 1.35;">${t.title}</h4>
+              <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 16px;">${t.desc}</p>
             </div>
-            <div class="status-group">
-              <button class="btn-status ${curState === 'defended' ? 'active-defended' : ''}" data-tid="${t.id}" data-val="defended">${i18n.btn_defended}</button>
-              <button class="btn-status ${curState === 'partial' ? 'active-partial' : ''}" data-tid="${t.id}" data-val="partial">${i18n.btn_partial}</button>
-              <button class="btn-status ${curState === 'exposed' ? 'active-exposed' : ''}" data-tid="${t.id}" data-val="exposed">${i18n.btn_exposed}</button>
+            <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border); padding-top: 14px; gap: 8px; flex-wrap: wrap;">
+              <span style="font-size: 0.78rem; font-weight: 600; color: ${statusColor};">
+                Status: ${statusText}
+              </span>
+              <div class="status-btn-group">
+                <button class="btn-stat ${curState === 'defended' ? 'act-def' : ''}" data-tid="${t.id}" data-val="defended">Defended</button>
+                <button class="btn-stat ${curState === 'partial' ? 'act-part' : ''}" data-tid="${t.id}" data-val="partial">Partial</button>
+                <button class="btn-stat ${curState === 'exposed' ? 'act-exp' : ''}" data-tid="${t.id}" data-val="exposed">Vulnerable</button>
+              </div>
             </div>
           `;
           threatList.appendChild(item);
         });
 
         // Attach event listeners
-        document.querySelectorAll(".btn-status").forEach(btn => {
+        document.querySelectorAll(".btn-stat").forEach(btn => {
           btn.addEventListener("click", function() {
             const tid = this.getAttribute("data-tid");
             const val = this.getAttribute("data-val");
@@ -1566,14 +1553,16 @@ footer a:hover,
         });
       }
 
-      // Architecture selection buttons
-      document.querySelectorAll(".arch-btn").forEach(btn => {
+      // Architecture selection chips
+      document.querySelectorAll(".arch-chip").forEach(btn => {
         btn.addEventListener("click", function() {
-          document.querySelectorAll(".arch-btn").forEach(b => b.classList.remove("active"));
+          document.querySelectorAll(".arch-chip").forEach(b => b.classList.remove("active"));
           this.classList.add("active");
           selectedArch = this.getAttribute("data-arch");
         });
       });
+
+      
 
       // Generate Blueprint
       document.getElementById("btn-generate-blueprint").addEventListener("click", function() {
