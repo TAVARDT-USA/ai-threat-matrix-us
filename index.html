@@ -1046,6 +1046,236 @@ footer a:hover,
 .brand-sub {
   color: #839bc8 !important;
 }
+
+/* ==========================================================================
+   LAYOUT 6: SCORECARD SIMÉTRICO 2X5 BALANCEADO
+   ========================================================================== */
+.stats-score-banner {
+  background: var(--card-bg) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 16px !important;
+  padding: 28px 32px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  margin-bottom: 32px !important;
+}
+.stats-banner-grid {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  gap: 32px !important;
+  flex-wrap: wrap !important;
+}
+.stats-score-col {
+  display: flex !important;
+  align-items: center !important;
+  gap: 28px !important;
+  flex-wrap: wrap !important;
+}
+.score-circle {
+  width: 130px !important;
+  height: 130px !important;
+  border-radius: 50% !important;
+  border: 4px solid var(--border) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #050510 !important;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.6) !important;
+  flex-shrink: 0 !important;
+}
+.score-val {
+  font-size: 2.2rem !important;
+  font-weight: 800 !important;
+  font-family: 'Fira Code', Consolas, monospace !important;
+  color: var(--fail) !important;
+  line-height: 1 !important;
+}
+.score-label {
+  font-size: 0.75rem !important;
+  color: var(--text-muted) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  margin-top: 4px !important;
+}
+.score-meta-col {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+}
+.posture-status {
+  font-size: 1.25rem !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.02em !important;
+}
+.posture-stats-row {
+  display: flex !important;
+  gap: 16px !important;
+}
+.mini-stat {
+  background: var(--card-surface) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 8px !important;
+  padding: 8px 16px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+}
+.mini-stat-val {
+  font-size: 1.1rem !important;
+  font-weight: 700 !important;
+  font-family: 'Fira Code', monospace !important;
+}
+.mini-stat-lbl {
+  font-size: 0.72rem !important;
+  color: var(--text-muted) !important;
+  text-transform: uppercase !important;
+}
+.stats-actions-col {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+  min-width: 280px !important;
+}
+.btn-action-main {
+  background: #1e00ff !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: 9999px !important;
+  padding: 14px 24px !important;
+  font-size: 0.92rem !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  box-shadow: 0 0 25px rgba(30, 0, 255, 0.5) !important;
+  text-align: center !important;
+}
+.btn-action-main:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 0 35px rgba(30, 0, 255, 0.8) !important;
+}
+.btn-action-secondary {
+  background: var(--card-surface) !important;
+  color: #ffffff !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 9999px !important;
+  padding: 12px 20px !important;
+  font-size: 0.88rem !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  text-align: center !important;
+}
+.btn-action-secondary:hover {
+  border-color: rgba(255, 255, 255, 0.25) !important;
+}
+
+/* GRID 2X5 BALANCEADO */
+#threat-list {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 20px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+@media (max-width: 820px) {
+  #threat-list {
+    grid-template-columns: 1fr !important;
+  }
+  .stats-banner-grid {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  .stats-score-col {
+    justify-content: center !important;
+  }
+}
+
+/* CARD SIMÉTRICO DA AMEAÇA */
+.threat-item {
+  background: var(--card-surface) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 14px !important;
+  padding: 22px !important;
+  margin-bottom: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  gap: 16px !important;
+  transition: all 0.2s ease !important;
+  box-sizing: border-box !important;
+}
+.threat-item:hover {
+  border-color: rgba(30, 0, 255, 0.4) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4) !important;
+}
+.threat-info {
+  flex: 1 !important;
+}
+.threat-code {
+  font-size: 0.75rem !important;
+  font-family: 'Fira Code', Consolas, monospace !important;
+  color: #839bc8 !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.05em !important;
+}
+.threat-title {
+  font-size: 1.05rem !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  margin: 6px 0 8px 0 !important;
+  line-height: 1.35 !important;
+}
+.threat-desc {
+  font-size: 0.88rem !important;
+  color: var(--text-muted) !important;
+  line-height: 1.55 !important;
+}
+.status-group {
+  display: flex !important;
+  gap: 8px !important;
+  width: 100% !important;
+  border-top: 1px solid var(--border) !important;
+  padding-top: 14px !important;
+}
+.btn-status {
+  flex: 1 !important;
+  padding: 8px 10px !important;
+  border-radius: 8px !important;
+  border: 1px solid var(--border) !important;
+  background: var(--card-bg) !important;
+  color: var(--text-muted) !important;
+  font-size: 0.78rem !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  text-align: center !important;
+}
+.btn-status:hover {
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+.btn-status.active-defended {
+  background: rgba(16, 185, 129, 0.15) !important;
+  color: #10b981 !important;
+  border-color: #10b981 !important;
+  font-weight: 700 !important;
+}
+.btn-status.active-partial {
+  background: rgba(245, 158, 11, 0.15) !important;
+  color: #f59e0b !important;
+  border-color: #f59e0b !important;
+  font-weight: 700 !important;
+}
+.btn-status.active-exposed {
+  background: rgba(239, 68, 68, 0.15) !important;
+  color: #ef4444 !important;
+  border-color: #ef4444 !important;
+  font-weight: 700 !important;
+}
 </style>
 </head>
 <body>
@@ -1070,10 +1300,43 @@ footer a:hover,
       <p>Systematic attack surface evaluation for Large Language Models (LLMs) and autonomous AI agents. Grounded in OWASP Top 10 for LLMs and MITRE ATLAS with automated defense blueprint generation.</p>
     </div>
 
-    <div class="grid-dashboard">
-      <div>
-        <div class="card">
-          <div class="card-title">1. Select your AI Architecture Profile</div>
+    <!-- LAYOUT 6: 1. ARQUITETURA (FULL WIDTH) -->
+    <div class="card" style="margin-bottom: 24px;">
+      
+    </div>
+
+    <!-- LAYOUT 6: SCORECARD & STATUS BANNER (FULL WIDTH) -->
+    <div class="card stats-score-banner">
+      <div class="stats-banner-grid">
+        <div class="stats-score-col">
+          <div class="score-circle">
+            <span id="stat-score" class="score-val">0</span>
+            <span class="score-label">Hardening Score</span>
+          </div>
+          <div class="score-meta-col">
+            <div id="stat-posture" class="posture-status">Defensive Posture</div>
+            <div class="posture-stats-row">
+            <div class="mini-stat">
+              <span id="stat-defended" class="mini-stat-val" style="color: var(--pass);">0</span>
+              <span class="mini-stat-lbl">Defended Controls</span>
+            </div>
+            <div class="mini-stat">
+              <span id="stat-exposed" class="mini-stat-val" style="color: var(--fail);">0</span>
+              <span class="mini-stat-lbl">Vulnerable Vectors</span>
+            </div>
+          </div>
+          </div>
+        </div>
+        <div class="stats-actions-col">
+          <button id="btn-generate-blueprint" class="btn-action-main">Generate Hardening Blueprint (Markdown)</button>
+          <button id="btn-export-matrix" class="btn-action-secondary">Export Threat Matrix JSON</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- LAYOUT 6: 2. GRADE SIMÉTRICA 2X5 DOS 10 VETORES DE RISCO -->
+    <div class="card" style="margin-bottom: 32px;">
+      <div class="card-title">1. Select your AI Architecture Profile</div>
           <div class="card-desc">The architectural profile recalibrates threat severity multipliers and defensive directives:</div>
           <div class="arch-selector">
             <button class="arch-btn active" data-arch="agent">
@@ -1096,35 +1359,7 @@ footer a:hover,
 
           <div class="card-title" style="margin-top: 24px;">2. Threat Matrix Evaluation Across 10 Critical Attack Vectors (OWASP)</div>
           <div class="card-desc">Assess the defensive implementation status for each adversarial vector:</div>
-
-          <div id="threat-list"></div>
-        </div>
-      </div>
-
-      <div>
-        <div class="card stats-card">
-          <div class="score-circle">
-            <span id="stat-score" class="score-val">0</span>
-            <span class="score-label">Hardening Score</span>
-          </div>
-
-          <div id="stat-posture" class="posture-status">Defensive Posture</div>
-
-          <div class="posture-stats-row">
-            <div class="mini-stat">
-              <span id="stat-defended" class="mini-stat-val" style="color: var(--pass);">0</span>
-              <span class="mini-stat-lbl">Defended Controls</span>
-            </div>
-            <div class="mini-stat">
-              <span id="stat-exposed" class="mini-stat-val" style="color: var(--fail);">0</span>
-              <span class="mini-stat-lbl">Vulnerable Vectors</span>
-            </div>
-          </div>
-
-          <button id="btn-generate-blueprint" class="btn-action-main">Generate Hardening Blueprint (Markdown)</button>
-          <button id="btn-export-matrix" class="btn-action-secondary">Export Threat Matrix JSON</button>
-        </div>
-      </div>
+      <div id="threat-list"></div>
     </div>
 
     <div id="blueprint-card" class="card" style="display: none; margin-top: 24px;">
