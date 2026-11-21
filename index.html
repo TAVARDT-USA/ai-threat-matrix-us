@@ -1261,6 +1261,222 @@ footer a:hover,
   border-color: #ef4444 !important;
   font-weight: 700 !important;
 }
+
+/* ==========================================================================
+   LAYOUT 6 EXACT: SCORECARD SIMÉTRICO 2X5 BALANCEADO
+   ========================================================================== */
+.arch-bar {
+  display: flex !important;
+  gap: 10px !important;
+  flex-wrap: wrap !important;
+  margin-bottom: 24px !important;
+  background: var(--card-bg) !important;
+  border: 1px solid var(--border) !important;
+  padding: 12px 16px !important;
+  border-radius: 12px !important;
+  align-items: center !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+.arch-bar-label {
+  font-size: 0.85rem !important;
+  font-weight: 700 !important;
+  color: #839bc8 !important;
+  margin-right: 8px !important;
+}
+.arch-chip {
+  background: var(--card-surface) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--text-muted) !important;
+  padding: 8px 14px !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
+  font-size: 0.82rem !important;
+  font-weight: 600 !important;
+  transition: all 0.2s ease !important;
+}
+.arch-chip:hover {
+  border-color: #839bc8 !important;
+  color: #ffffff !important;
+}
+.arch-chip.active {
+  background: rgba(30, 0, 255, 0.25) !important;
+  border-color: #1e00ff !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 15px rgba(30, 0, 255, 0.3) !important;
+}
+
+/* GLOBAL SCORE BAR */
+.global-score-bar {
+  background: var(--card-bg) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 14px !important;
+  padding: 18px 24px !important;
+  margin-bottom: 28px !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 16px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+.score-left {
+  display: flex !important;
+  align-items: center !important;
+  gap: 20px !important;
+}
+.score-big {
+  font-size: 2.2rem !important;
+  font-weight: 800 !important;
+  font-family: 'Fira Code', Consolas, monospace !important;
+  color: var(--fail) !important;
+  line-height: 1 !important;
+}
+.score-label-wrap h4 {
+  font-size: 0.95rem !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  margin: 0 0 4px 0 !important;
+}
+.score-label-wrap p {
+  font-size: 0.8rem !important;
+  color: var(--text-muted) !important;
+  margin: 0 !important;
+}
+.score-pills {
+  display: flex !important;
+  gap: 12px !important;
+  flex-wrap: wrap !important;
+}
+.score-pill {
+  background: var(--card-surface) !important;
+  border: 1px solid var(--border) !important;
+  padding: 6px 14px !important;
+  border-radius: 9999px !important;
+  font-size: 0.8rem !important;
+  font-weight: 600 !important;
+}
+.score-pill.def {
+  color: var(--pass) !important;
+  border-color: rgba(16, 185, 129, 0.3) !important;
+  background: rgba(16, 185, 129, 0.08) !important;
+}
+.score-pill.part {
+  color: var(--warn) !important;
+  border-color: rgba(245, 158, 11, 0.3) !important;
+  background: rgba(245, 158, 11, 0.08) !important;
+}
+.score-pill.exp {
+  color: var(--fail) !important;
+  border-color: rgba(239, 68, 68, 0.3) !important;
+  background: rgba(239, 68, 68, 0.08) !important;
+}
+
+/* ACTIONS BUTTON */
+.btn-action-main {
+  background: #1e00ff !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: 9999px !important;
+  padding: 15px 36px !important;
+  font-size: 0.95rem !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  box-shadow: 0 0 25px rgba(30, 0, 255, 0.5) !important;
+  text-align: center !important;
+  display: inline-block !important;
+}
+.btn-action-main:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 0 35px rgba(30, 0, 255, 0.8) !important;
+}
+.btn-action-secondary {
+  background: var(--card-surface) !important;
+  color: #cbd5e1 !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 9999px !important;
+  padding: 11px 20px !important;
+  font-size: 0.88rem !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  text-align: center !important;
+}
+.btn-action-secondary:hover {
+  border-color: #839bc8 !important;
+  color: #ffffff !important;
+}
+
+/* GRADE 2X5 BALANCEADA */
+.grid-2x5, #threat-list {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 20px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+@media (max-width: 820px) {
+  .grid-2x5, #threat-list {
+    grid-template-columns: 1fr !important;
+  }
+}
+.card-2x5 {
+  background: var(--card-bg) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 14px !important;
+  padding: 22px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  transition: all 0.2s ease !important;
+  box-sizing: border-box !important;
+}
+.card-2x5:hover {
+  border-color: rgba(30, 0, 255, 0.4) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* BOTÕES DE STATUS DENTRO DO CARD */
+.status-btn-group {
+  display: flex !important;
+  gap: 6px !important;
+}
+.btn-stat {
+  font-size: 0.75rem !important;
+  padding: 6px 12px !important;
+  border-radius: 6px !important;
+  border: 1px solid var(--border) !important;
+  background: var(--card-surface) !important;
+  color: var(--text-muted) !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  font-weight: 600 !important;
+}
+.btn-stat:hover {
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+.btn-stat.act-def {
+  background: rgba(16, 185, 129, 0.15) !important;
+  color: #10b981 !important;
+  border-color: #10b981 !important;
+  font-weight: 700 !important;
+}
+.btn-stat.act-part {
+  background: rgba(245, 158, 11, 0.15) !important;
+  color: #f59e0b !important;
+  border-color: #f59e0b !important;
+  font-weight: 700 !important;
+}
+.btn-stat.act-exp {
+  background: rgba(239, 68, 68, 0.15) !important;
+  color: #ef4444 !important;
+  border-color: #ef4444 !important;
+  font-weight: 700 !important;
+}
 </style>
 </head>
 <body>
@@ -1310,18 +1526,19 @@ footer a:hover,
       </div>
     </div>
 
-    <!-- ACTIONS ROW (GENERATE BLUEPRINT & EXPORT JSON) -->
-    <div style="display: flex; gap: 12px; justify-content: flex-end; margin-bottom: 24px; flex-wrap: wrap;">
-      <button id="btn-generate-blueprint" class="btn-action-main">Generate Hardening Blueprint (Markdown)</button>
-      <button id="btn-export-matrix" class="btn-action-secondary">Export Threat Matrix JSON</button>
-    </div>
-
     <!-- BALANCED 2X5 THREAT SCORECARD HEADING & GRID -->
     <h2 style="text-align: center; margin-bottom: 24px; font-size: 1.5rem; font-weight: 700; color: #ffffff;">
       Symmetrical Threat Scorecard (Balanced 2×5 Grid)
     </h2>
 
-    <div id="threat-list" class="grid-2x5" style="margin-bottom: 32px;"></div>
+    <div id="threat-list" class="grid-2x5" style="margin-bottom: 28px;"></div>
+
+    <!-- GENERATE BLUEPRINT BUTTON (MOVED BELOW THE 10 THREAT ITEMS - PRINT 2) -->
+    <div style="display: flex; justify-content: center; margin-bottom: 32px;">
+      <button id="btn-generate-blueprint" class="btn-action-main" style="width: 100%; max-width: 580px; font-size: 1rem; padding: 16px 36px;">
+        Generate Hardening Blueprint (Markdown)
+      </button>
+    </div>
 
     <!-- Hardening Blueprint Output Card (Initially Hidden) -->
     <div id="blueprint-card" class="card" style="display: none; margin-bottom: 32px; border-color: #1e00ff;">
@@ -1564,6 +1781,8 @@ footer a:hover,
 
       
 
+      
+
       // Generate Blueprint
       document.getElementById("btn-generate-blueprint").addEventListener("click", function() {
         const ts = new Date().toISOString().replace("T", " ").substring(0, 19);
@@ -1631,7 +1850,7 @@ footer a:hover,
         URL.revokeObjectURL(url);
       });
 
-      document.getElementById("btn-export-matrix").addEventListener("click", function() {
+      const btnExp = document.getElementById("btn-export-matrix"); if (btnExp) btnExp.addEventListener("click", function() {
         const payload = {
           organization: "TAVARDT United States",
           architecture: selectedArch,
