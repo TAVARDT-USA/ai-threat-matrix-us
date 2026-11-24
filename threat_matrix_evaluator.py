@@ -100,11 +100,11 @@ def generate_blueprint_md(evaluation):
 
 def main():
     parser = argparse.ArgumentParser(description="AI Threat Matrix Posture Evaluator and Blueprint Generator.")
-    parser.add_argument("--arch", choices=["agent", "rag", "chat", "api"], default="agent", help="Architectural profile of the AI solution (agent, rag, chat, api)")
-    parser.add_argument("--profile", help="Path to JSON file containing threat defense states")
-    parser.add_argument("--export-blueprint", help="Export hardening blueprint to Markdown file")
-    parser.add_argument("--strict", action="store_true", help="Exit with code 1 if any threat vector is vulnerable")
-    parser.add_argument("--json", action="store_true", help="Output results as structured JSON")
+    parser.add_argument("-arch", "--arch", choices=["agent", "rag", "chat", "api"], default="agent", help="Architectural profile of the AI solution (agent, rag, chat, api)")
+    parser.add_argument("-profile", "--profile", help="Path to JSON file containing threat defense states")
+    parser.add_argument("-export-blueprint", "--export-blueprint", help="Export hardening blueprint to Markdown file")
+    parser.add_argument("-strict", "--strict", action="store_true", help="Exit with code 1 if any threat vector is vulnerable")
+    parser.add_argument("-json", "--json", action="store_true", help="Output results as structured JSON")
 
     args = parser.parse_args()
 
