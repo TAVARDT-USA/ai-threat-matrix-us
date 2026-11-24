@@ -78,7 +78,6 @@ jobs:
 
 ## Compliance and Technical Standards
 
-- **Jurisdiction**: United States
 - **Compliance Standard**: OWASP Top 10 for LLM Applications & MITRE ATLAS
 - **Maintaining Organization**: [TAVARDT-USA](https://github.com/TAVARDT-USA)
 
@@ -92,3 +91,7 @@ jobs:
 
 ### License
 Released under the MIT License. See [LICENSE](LICENSE) for full details.
+
+***
+
+© 2026 TAVARDT. All rights reserved.
