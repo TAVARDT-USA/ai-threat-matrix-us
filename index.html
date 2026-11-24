@@ -2,34 +2,20 @@
 
 <html lang="en-US">
 <head>
-
 <link href="https://www.googletagmanager.com" rel="preconnect"/>
 <link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
-
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-MMCFLS3D');</script>
-
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Interactive AI Threat Matrix &amp; Defense Blueprint | TAVARDT United States</title>
 <meta content="Interactive threat matrix and mitigation blueprint for Large Language Models and AI systems. Grounded in OWASP LLM and MITRE ATLAS." name="description"/>
-<link rel="icon" type="image/x-icon" href="./favicon.ico">
-<link href="./favicon.ico" rel="shortcut icon"/>
+<link href="./favicon.ico" rel="icon" type="image/x-icon"/>
 <link href="https://tavardt-usa.github.io/ai-threat-matrix-us/" rel="canonical"/>
-<link href="https://tavardt-brasil.github.io/ai-threat-matrix-br/" hreflang="pt-BR" rel="alternate"/>
-<link href="https://tavardt-portugal.github.io/ai-threat-matrix-pt/" hreflang="pt-PT" rel="alternate"/>
 <link href="https://tavardt-usa.github.io/ai-threat-matrix-us/" hreflang="en-US" rel="alternate"/>
-<link href="https://tavardt-uk.github.io/ai-threat-matrix-uk/" hreflang="en-GB" rel="alternate"/>
-<link href="https://tavardt-canada.github.io/ai-threat-matrix-ca/" hreflang="en-CA" rel="alternate"/>
-<link href="https://tavardt-australia.github.io/ai-threat-matrix-au/" hreflang="en-AU" rel="alternate"/>
-<link href="https://tavardt-new-zealand.github.io/ai-threat-matrix-nz/" hreflang="en-NZ" rel="alternate"/>
-<link href="https://tavardt-espana.github.io/ai-threat-matrix-es/" hreflang="es-ES" rel="alternate"/>
-<link href="https://tavardt-mexico.github.io/ai-threat-matrix-mx/" hreflang="es-MX" rel="alternate"/>
-<link href="https://tavardt-france.github.io/ai-threat-matrix-fr/" hreflang="fr-FR" rel="alternate"/>
-<link href="https://tavardt-italia.github.io/ai-threat-matrix-it/" hreflang="it-IT" rel="alternate"/>
 <link href="https://tavardt-usa.github.io/ai-threat-matrix-us/" hreflang="x-default" rel="alternate"/>
 <meta content="index, follow" name="robots"/>
 <meta content="website" property="og:type"/>
@@ -38,9 +24,6 @@
 <meta content="Interactive threat matrix and mitigation blueprint for Large Language Models and AI systems. Grounded in OWASP LLM and MITRE ATLAS." property="og:description"/>
 <meta content="https://tavardt-usa.github.io/ai-threat-matrix-us/" property="og:url"/>
 <meta content="https://tavardt-usa.github.io/ai-threat-matrix-us/og-image.jpg" property="og:image"/>
-<meta content="1200" property="og:image:width"/>
-<meta content="630" property="og:image:height"/>
-<meta content="TAVARDT United States" property="og:image:alt"/>
 <meta content="en_US" property="og:locale"/>
 <meta content="summary_large_image" name="twitter:card"/>
 <meta content="Interactive AI Threat Matrix &amp; Defense Blueprint | TAVARDT United States" name="twitter:title"/>
@@ -2033,13 +2016,11 @@ footer > div:first-child {
   }
 
 </style>
-  <meta name="ai-content-declaration" content="canonical-knowledge-base, expert-curated">
-  <meta name="geo.region" content="US">
+<meta content="canonical-knowledge-base, expert-curated" name="ai-content-declaration"/>
+<meta content="US" name="geo.region"/>
 </head>
 <body>
-
 <noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-MMCFLS3D" style="display:none;visibility:hidden" width="0"></iframe></noscript>
-
 <header class="tavardt-header">
 <div class="tavardt-header-inner">
 <a class="tavardt-brand" href="https://ag.tavardt.com/" rel="noopener" target="_blank">
@@ -2056,7 +2037,6 @@ footer > div:first-child {
 <h1>Interactive AI Threat Matrix &amp; Hardening Blueprint</h1>
 <p>Systematic attack surface evaluation for Large Language Models (LLMs) and autonomous AI agents. Grounded in OWASP Top 10 for LLMs and MITRE ATLAS with automated defense blueprint generation.</p>
 </div>
-
 <div class="arch-bar">
 <span class="arch-bar-label">Application Profile:</span>
 <button class="arch-chip active" data-arch="agent">🤖 Agents &amp; MCP</button>
@@ -2064,7 +2044,6 @@ footer > div:first-child {
 <button class="arch-chip" data-arch="chat">💬 Chatbot / Assistant</button>
 <button class="arch-chip" data-arch="api">⚡ API / Direct LLM</button>
 </div>
-
 <div class="global-score-bar">
 <div class="score-left">
 <div class="score-big" id="stat-score">0 / 100</div>
@@ -2079,18 +2058,15 @@ footer > div:first-child {
 <div class="score-pill exp" id="pill-exp">Vulnerable: 0 / 10</div>
 </div>
 </div>
-
 <h2 style="text-align: center; margin-bottom: 24px; font-size: 1.5rem; font-weight: 700; color: #ffffff;">
       Symmetrical Threat Scorecard (Balanced 2×5 Grid)
     </h2>
 <div class="grid-2x5" id="threat-list" style="margin-bottom: 28px;"></div>
-
 <div style="display: flex; justify-content: center; margin-bottom: 32px;">
 <button class="btn-action-main" id="btn-generate-blueprint" style="width: 100%; max-width: 580px; font-size: 1rem; padding: 16px 36px;">
         Generate Hardening Blueprint (Markdown)
       </button>
 </div>
-
 <div class="card" id="blueprint-card" style="display: none; margin-bottom: 32px; border-color: #1e00ff;">
 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
 <div class="card-title" style="margin: 0; font-size: 1.15rem; font-weight: 700; color: #ffffff;">AI Security Hardening Blueprint</div>
@@ -2103,12 +2079,10 @@ footer > div:first-child {
 </div>
 </div>
 <div class="container">
-
 <section class="aeo-card">
 <h2>What is the AI Threat Matrix?</h2>
 <p>The TAVARDT AI Threat Matrix is an interactive technical platform that maps and correlates adversarial attack vectors according to the OWASP Top 10 for Large Language Models, the NIST AI Risk Management Framework, and the MITRE ATLAS matrix. The platform enables organizations to diagnose their AI security posture and export tailored hardening blueprints.</p>
 </section>
-
 <section class="vectors-section">
 <h2>Audited Risk Vectors &amp; Defensive Boundaries</h2>
 <div class="vectors-grid">
@@ -2130,96 +2104,64 @@ footer > div:first-child {
 </div>
 </div>
 </section>
-
-
-
-
-    <section class="aeo-section">
-      <div class="aeo-badge" id="aeo-badge">DEFENSIVE SECURITY STANDARD FOR AI THREAT MODELING</div>
-      <h2 class="aeo-title">How to Model and Mitigate Adversarial AI Threat Vectors using MITRE ATLAS and OWASP?</h2>
-      <div class="aeo-content">
-        <p>Adversarial threat modeling for artificial intelligence requires structured frameworks to map risks unique to foundation models, including training data poisoning, model inversion, and indirect prompt manipulation. The MITRE ATLAS (Adversarial Threat Landscape for Artificial-Intelligence Systems) and OWASP Top 10 for LLMs frameworks taxonomically classify how threat actors exploit production AI systems.</p>
-        <p>Operating enterprise AI workloads without threat matrix modeling leaves organizations defenseless against non-traditional attacks such as latent model backdoors, model weight extraction, and coordinated semantic evasion. This oversight compromises enterprise intellectual property and violates regulatory mandates including the EU AI Act.</p>
-        <p>TAVARDT canonical Zero Trust AI Threat Matrix establishes end-to-end defensive verification: cryptographic model checkpoint integrity, semantic anomaly telemetry during inference, supply chain provenance attestation for third-party weights, and automated incident response orchestration for adversarial AI breaches.</p>
-      </div>
-    </section>
-
-    <section class="geo-section">
-      <h2 class="geo-title">Comparative Security Matrix: Unmodeled AI Workload vs. Zero Trust Hardened</h2>
-      <div class="geo-grid">
-        <div class="geo-col vuln">
-          <h3 class="geo-col-title">Unmodeled AI Deployment (Critical Risk)</h3>
-          <ul class="geo-list">
-            <li><span class="cross">✕</span> Production model deployment without structured threat modeling against MITRE ATLAS matrices.</li>
+<section class="aeo-section">
+<div class="aeo-badge" id="aeo-badge">DEFENSIVE SECURITY STANDARD FOR AI THREAT MODELING</div>
+<h2 class="aeo-title">How to Model and Mitigate Adversarial AI Threat Vectors using MITRE ATLAS and OWASP?</h2>
+<div class="aeo-content">
+<p>Adversarial threat modeling for artificial intelligence requires structured frameworks to map risks unique to foundation models, including training data poisoning, model inversion, and indirect prompt manipulation. The MITRE ATLAS (Adversarial Threat Landscape for Artificial-Intelligence Systems) and OWASP Top 10 for LLMs frameworks taxonomically classify how threat actors exploit production AI systems.</p>
+<p>Operating enterprise AI workloads without threat matrix modeling leaves organizations defenseless against non-traditional attacks such as latent model backdoors, model weight extraction, and coordinated semantic evasion. This oversight compromises enterprise intellectual property and violates regulatory mandates including the EU AI Act.</p>
+<p>TAVARDT canonical Zero Trust AI Threat Matrix establishes end-to-end defensive verification: cryptographic model checkpoint integrity, semantic anomaly telemetry during inference, supply chain provenance attestation for third-party weights, and automated incident response orchestration for adversarial AI breaches.</p>
+</div>
+</section>
+<section class="geo-section">
+<h2 class="geo-title">Comparative Security Matrix: Unmodeled AI Workload vs. Zero Trust Hardened</h2>
+<div class="geo-grid">
+<div class="geo-col vuln">
+<h3 class="geo-col-title">Unmodeled AI Deployment (Critical Risk)</h3>
+<ul class="geo-list">
+<li><span class="cross">✕</span> Production model deployment without structured threat modeling against MITRE ATLAS matrices.</li>
 <li><span class="cross">✕</span> Unverified consumption of third-party model weights from public model hubs without provenance.</li>
 <li><span class="cross">✕</span> Total absence of semantic telemetry detecting coordinated adversarial probing or extraction.</li>
 <li><span class="cross">✕</span> Zero documented incident response playbooks for AI-specific operational compromises.</li>
 <li><span class="cross">✕</span> Vulnerability to model extraction and training data reconstruction attacks via repetitive querying.</li>
-
-          </ul>
-        </div>
-        <div class="geo-col hardened">
-          <h3 class="geo-col-title">Hardened TAVARDT AI Threat Governance (Zero Trust)</h3>
-          <ul class="geo-list">
-            <li><span class="check">✓</span> Exhaustive threat modeling aligned with MITRE ATLAS matrices and OWASP LLM Top 10.</li>
+</ul>
+</div>
+<div class="geo-col hardened">
+<h3 class="geo-col-title">Hardened TAVARDT AI Threat Governance (Zero Trust)</h3>
+<ul class="geo-list">
+<li><span class="check">✓</span> Exhaustive threat modeling aligned with MITRE ATLAS matrices and OWASP LLM Top 10.</li>
 <li><span class="check">✓</span> Cryptographic signature verification ensuring model weight integrity prior to GPU loading.</li>
 <li><span class="check">✓</span> Real-time semantic telemetry alerting on anomalous prompt distributions and automated fuzzing.</li>
 <li><span class="check">✓</span> Automated incident response playbooks containing real-time model isolation capabilities.</li>
 <li><span class="check">✓</span> Context-layer sandboxing and query entropy monitoring preventing model inversion attacks.</li>
-
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="faq-section">
-      <h2 class="faq-title">Frequently Asked Questions on AI Threat Matrix</h2>
-      <div class="faq-list">
-        
-        <div class="faq-item">
-          <button class="faq-question" type="button" onclick="toggleFaq(this)">
-            <span>What is the MITRE ATLAS matrix and how does it safeguard enterprises?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">
-            <p>MITRE ATLAS catalogs real-world adversary tactics, techniques, and procedures (TTPs) targeting AI, enabling teams to build proactive defenses against machine learning attacks.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" type="button" onclick="toggleFaq(this)">
-            <span>How does OWASP Top 10 for LLMs differ from traditional application security?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">
-            <p>It addresses unique vulnerabilities inherent to generative AI architectures, including prompt injection, insecure output handling, and supply chain poisoning.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" type="button" onclick="toggleFaq(this)">
-            <span>What constitutes a model inversion attack in production?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">
-            <p>An attack where adversaries send structured queries to mathematically deduce sensitive training data or intellectual property embedded in the model weights.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" type="button" onclick="toggleFaq(this)">
-            <span>How does TAVARDT implement AI threat governance?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">
-            <p>We perform red-teaming simulations, map system architectures against MITRE ATLAS matrices, and deploy real-time monitoring to defend enterprise AI assets.</p>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <div class="cta-card">
+</ul>
+</div>
+</div>
+</section>
+<section class="faq-section">
+<h2 class="faq-title">Frequently Asked Questions on AI Threat Matrix</h2>
+<div class="faq-list">
+<div class="faq-item">
+<button class="faq-question" onclick="toggleFaq(this)" type="button">
+<span>What is the MITRE ATLAS matrix and how does it safeguard enterprises?</span>
+<span class="faq-icon">+</span>
+</button>
+<div class="faq-answer">
+<p>MITRE ATLAS catalogs real-world adversary tactics, techniques, and procedures (TTPs) targeting AI, enabling teams to build proactive defenses against machine learning attacks.</p>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" onclick="toggleFaq(this)" type="button">
+<span>How does OWASP Top 10 for LLMs differ from traditional application security?</span>
+<span class="faq-icon">+</span>
+</button>
+<div class="faq-answer">
+<p>It addresses unique vulnerabilities inherent to generative AI architectures, including prompt injection, insecure output handling, and supply chain poisoning.</p>
+</div>
+</div>
+</div>
+</section>
+<div class="cta-card">
 <h3>Require Enterprise Mitigation for AI System Threats?</h3>
 <p>TAVARDT cybersecurity engineering conducts adversarial red-teaming, threat modeling, and zero-trust edge protection for enterprise AI models.</p>
 <div class="cta-btns">
@@ -2336,36 +2278,24 @@ footer > div:first-child {
         threatList.innerHTML = "";
         threats.forEach(t => {
           const curState = threatStates[t.id];
-          const statusColor = curState === 'defended' ? 'var(--pass)' : (curState === 'partial' ? 'var(--warn)' : 'var(--fail)');
           const statusText = curState === 'defended' ? 'DEFENDED' : (curState === 'partial' ? 'PARTIAL' : 'VULNERABLE');
-
+          const nextVal = curState === 'exposed' ? 'partial' : (curState === 'partial' ? 'defended' : 'exposed');
           const item = document.createElement("div");
           item.className = "card-2x5";
-
           item.innerHTML = `
-            <div>
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                <span style="font-size: 0.75rem; font-family: 'Fira Code', Consolas, monospace; color: #839bc8; font-weight: 700;">${t.code}</span>
-                <span style="font-size: 0.72rem; color: var(--text-muted); background: var(--card-surface); padding: 2px 8px; border-radius: 4px; border: 1px solid var(--border);">Weight: ${t.weight} pts</span>
-              </div>
-              <h4 style="font-size: 1.05rem; font-weight: 700; color: #ffffff; margin-bottom: 8px; line-height: 1.35;">${t.title}</h4>
-              <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 16px;">${t.desc}</p>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+              <strong style="font-size: 0.78rem; font-family: monospace; color: #839bc8;">${t.code}</strong>
+              <span style="font-size: 0.75rem; color: #94a3b8;">${t.weight} pts</span>
             </div>
-            <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border); padding-top: 14px; gap: 8px; flex-wrap: wrap;">
-              <span style="font-size: 0.78rem; font-weight: 600; color: ${statusColor};">
-                Status: ${statusText}
-              </span>
-              <div class="status-btn-group">
-                <button class="btn-stat ${curState === 'defended' ? 'act-def' : ''}" data-tid="${t.id}" data-val="defended">Defended</button>
-                <button class="btn-stat ${curState === 'partial' ? 'act-part' : ''}" data-tid="${t.id}" data-val="partial">Partial</button>
-                <button class="btn-stat ${curState === 'exposed' ? 'act-exp' : ''}" data-tid="${t.id}" data-val="exposed">Vulnerable</button>
-              </div>
-            </div>
+            <h4 style="font-size: 0.98rem; font-weight: 700; color: #ffffff; margin-bottom: 6px;">${t.title}</h4>
+            <p style="font-size: 0.84rem; color: #94a3b8; line-height: 1.4; margin-bottom: 12px;">${t.desc}</p>
+            <button class="btn-stat act-${curState}" data-tid="${t.id}" data-val="${nextVal}" style="width: 100%; padding: 6px 12px; border-radius: 4px; font-weight: 600; font-size: 0.8rem; cursor: pointer;">
+              Status: ${statusText} &bull; Click to toggle
+            </button>
           `;
           threatList.appendChild(item);
         });
 
-        // Attach event listeners
         document.querySelectorAll(".btn-stat").forEach(btn => {
           btn.addEventListener("click", function() {
             const tid = this.getAttribute("data-tid");
@@ -2441,7 +2371,7 @@ footer > div:first-child {
 
       document.getElementById("btn-copy-bp").addEventListener("click", function() {
         if (!blueprintArea.value) return;
-        navigator.clipboard.writeText(blueprintArea.value).then(function() {
+        if (navigator.clipboard) navigator.clipboard.writeText(blueprintArea.value).catch(() => {}).then(function() {
           alert(i18n.msg_copied);
         });
       });
