@@ -657,6 +657,42 @@
     display: block;
   }
 
+
+    .faq-btn {
+      width: 100%;
+      background: transparent;
+      border: none;
+      padding: 16px 20px;
+      text-align: left;
+      font-size: 0.96rem;
+      font-weight: 600;
+      color: #f1f5f9;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+    }
+    .faq-btn:hover {
+      background: #0f172a;
+    }
+    .faq-icon {
+      font-size: 1.25rem;
+      color: #839bc8;
+      transition: transform 0.2s ease;
+    }
+    .faq-item.active .faq-icon {
+      transform: rotate(45deg);
+    }
+    .faq-body {
+      display: none;
+      padding: 0 20px 18px;
+      color: #94a3b8;
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+    .faq-item.active .faq-body {
+      display: block;
+    }
 </style>
 <style id="tavardt-unified-enterprise-css">
 
@@ -2140,7 +2176,53 @@ footer > div:first-child {
 </section>
 <section class="faq-section">
 <h2 class="faq-title">Frequently Asked Questions on AI Threat Matrix</h2>
-<div class="faq-list"><div class="faq-item"><div class="faq-question">What is the TAVARDT AI Threat Matrix?<span class="faq-toggle">+</span></div><div class="faq-answer">It is an enterprise security diagnostic platform mapping generative AI risk vectors into actionable remediation blueprints.</div></div><div class="faq-item"><div class="faq-question">How do OWASP Top 10 for LLMs and MITRE ATLAS align?<span class="faq-toggle">+</span></div><div class="faq-answer">OWASP categorizes high-impact architectural software flaws, while MITRE ATLAS maps empirical adversary tactics and operational techniques.</div></div><div class="faq-item"><div class="faq-question">What are the most critical threats facing autonomous AI agents?<span class="faq-toggle">+</span></div><div class="faq-answer">The most critical threats include Insecure Agency (unauthorized tool execution), memory state corruption, and indirect injection via retrieved context.</div></div><div class="faq-item"><div class="faq-question">How do you measure risk posture in enterprise AI systems?<span class="faq-toggle">+</span></div><div class="faq-answer">By evaluating perimeter boundaries, backend isolation protocols, tool execution limits, and multi-layered guardrail resilience.</div></div><div class="faq-item"><div class="faq-question">How does TAVARDT support AI threat mitigation?<span class="faq-toggle">+</span></div><div class="faq-answer">TAVARDT provides adversarial red teaming, architectural threat modeling, model guardrail engineering, and Cloudflare Zero Trust protection.</div></div></div>
+<div class="faq-list">
+<div class="faq-item">
+<button class="faq-btn" onclick="toggleFaq(this)" type="button">
+<span>What is the TAVARDT AI Threat Matrix?</span>
+<span class="faq-icon">+</span>
+</button>
+<div class="faq-body">
+It is an enterprise security diagnostic platform mapping generative AI risk vectors into actionable remediation blueprints.
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-btn" onclick="toggleFaq(this)" type="button">
+<span>How do OWASP Top 10 for LLMs and MITRE ATLAS align?</span>
+<span class="faq-icon">+</span>
+</button>
+<div class="faq-body">
+OWASP categorizes high-impact architectural software flaws, while MITRE ATLAS maps empirical adversary tactics and operational techniques.
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-btn" onclick="toggleFaq(this)" type="button">
+<span>What are the most critical threats facing autonomous AI agents?</span>
+<span class="faq-icon">+</span>
+</button>
+<div class="faq-body">
+The most critical threats include Insecure Agency (unauthorized tool execution), memory state corruption, and indirect injection via retrieved context.
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-btn" onclick="toggleFaq(this)" type="button">
+<span>How do you measure risk posture in enterprise AI systems?</span>
+<span class="faq-icon">+</span>
+</button>
+<div class="faq-body">
+By evaluating perimeter boundaries, backend isolation protocols, tool execution limits, and multi-layered guardrail resilience.
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-btn" onclick="toggleFaq(this)" type="button">
+<span>How does TAVARDT support AI threat mitigation?</span>
+<span class="faq-icon">+</span>
+</button>
+<div class="faq-body">
+TAVARDT provides adversarial red teaming, architectural threat modeling, model guardrail engineering, and Cloudflare Zero Trust protection.
+</div>
+</div>
+</div>
 </section>
 <div class="cta-card">
 <h3>Require Enterprise Mitigation for AI System Threats?</h3>
